@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "jest": "^19.0.2"
+    "jest": "^19.0.2",
+    "yargs": "^8.0.1"
   },
   "devDependencies": {},
   "scripts": {
