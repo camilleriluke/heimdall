@@ -8,7 +8,6 @@ beforeEach(() => {
     TEXT = 'foobar';
 });
 
-
 describe('.encrypt()', () => {
     test('should encrypt plain text', () => {
         expect(crypto.encrypt(TEXT, PASSWORD)).not.toEqual(TEXT);
