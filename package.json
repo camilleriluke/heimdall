@@ -6,12 +6,14 @@
   "dependencies": {
     "jest": "^19.0.2",
     "lodash": "^4.17.4",
+    "sinon": "^2.2.0",
     "winston": "^2.3.1",
     "yargs": "^8.0.1"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "tdd": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
