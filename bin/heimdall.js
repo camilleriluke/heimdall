@@ -1,16 +1,24 @@
 #! /usr/bin/env node
 
+
+const fs = require('fs');
+const path = require('path');
 const yargs = require('yargs');
+const _ = require('lodash');
 const config = require('../config.json');
 const logger = require('../src/logger');
+const utils = require('../src/utils');
+const crypto = require('../src/crypto');
+
+const getFileContents = _.partial(utils.getFileContents, fs, path);
+const encryptFile = _.partial(utils.encryptFile, logger, crypto.encrypt, getFileContents);
+const decryptFile = _.partial(utils.decryptFile, logger, crypto.decrypt, getFileContents);
 
 yargs
     .usage('$0 <cmd> [args]')
     .command('* [file]', 'Open Heimdall', { file: { default: config.defaultStore }}, defaultCommand)
     .command('encrypt <file> <password>', 'Encrypts the content of a text file', {}, encryptCommand)
     .command('decrypt <file> <password>', 'Decrypts the content of an encrypted file', {}, decryptCommand)
-    .command('export <file>', 'Exports the encrypted password file to the specified file', {}, exportCommand)
-    .command('import <file> <password>', 'Imports an encrypted file to the local storage', {}, importCommand)
     .help()
     .argv;
 
@@ -21,28 +29,23 @@ function defaultCommand (argv) {
 }
 
 function encryptCommand (argv) {
-    const file = argv.file;
-    const password = argv.password;
+    const options = {
+        fileName: argv.file,
+        password: argv.password
+    };
 
-    logger.debug('Heimdall:Encrypt', { file, password });
+    logger.debug('Heimdall:Encrypt', options);
+
+    console.log(encryptFile(options));
 }
 
 function decryptCommand (argv) {
-    const file = argv.file;
-    const password = argv.password;
+    const options = {
+        fileName: argv.file,
+        password: argv.password
+    };
 
-    logger.debug('Heimdall:Decrypt', { file, password });
-}
+    logger.debug('Heimdall:Encrypt', options);
 
-function exportCommand (argv) {
-    const file = argv.file;
-
-    logger.debug('Heimdall:Export', { file });
-}
-
-function importCommand (argv) {
-    const file = argv.file;
-    const password = argv.password;
-
-    logger.debug('Heimdall:Import', { file, password });
+    console.log(decryptFile(options));
 }
