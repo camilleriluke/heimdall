@@ -1,6 +1,6 @@
 # Heimdall
 
-A very lightweight, offline password storage.
+A very lightweight, offline password manager.
 
 ## Install
 `$ npm i -g heimdall`
@@ -19,5 +19,5 @@ First clone this repo, then use the following commands:
 
 | Command                                   | Description                                                                |
 | ----------------------------------------- | -------------------------------------------------------------------------- |
-| `$ npm test`                              | Runs all the tests. |
-| `$ npm run tdd                            | Runs tests on every file change. |
+| `$ npm test`                              | Runs all the tests.                                                        |
+| `$ npm run tdd`                           | Runs tests on every file change.                                           |
