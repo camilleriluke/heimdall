@@ -2,26 +2,12 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Hello World!</title>
+        <title>Heimdall</title>
+        <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+        <link rel="stylesheet" type="text/css" href="./styles/basic.css">
     </head>
     <body>
-        <h1>Hello World!</h1>
-        We are using node <script>document.write(process.versions.node)</script>,
-        Chrome <script>document.write(process.versions.chrome)</script>,
-        and Electron <script>document.write(process.versions.electron)</script>.
-        <br />
-        <script>document.write(__dirname)</script>
-
         <div id="root"></div>
         <script src="../../build/bundle.js"></script>
     </body>
-    <script>
-        // You can also require other files to run in this process
-        const fs = require('fs');
-        const path = require('path');
-        const configPath = path.resolve(__dirname, '../../default.config.json');
-        const config = require(configPath);
-
-        console.log(config);
-    </script>
 </html>
