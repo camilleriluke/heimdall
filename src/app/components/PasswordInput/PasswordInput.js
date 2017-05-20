@@ -7,14 +7,18 @@ export default class PasswordInput extends React.Component {
         super();
         this.props = props;
         this.state = {
-            type: 'password'
+            type: 'password',
+            showText: 'show',
+            hideText: 'hide',
+            toggleText: 'show'
         };
     }
 
     toggleType () {
         const type = this.getNextType();
+        const toggleText = type === 'text' ? this.state.hideText : this.state.showText;
 
-        this.setState({ type });
+        this.setState({ type, toggleText });
     }
 
     getNextType () {
@@ -35,7 +39,12 @@ export default class PasswordInput extends React.Component {
                     placeholder={ placeholder }
                     type={ this.state.type }
                 />
-                <span className={ styles.passwordInputToggle } onClick={ this.toggleType.bind(this) } >+</span>
+                <span
+                    className={ styles.passwordInputToggle }
+                    onClick={ this.toggleType.bind(this) }
+                >
+                    { this.state.toggleText }
+                </span>
             </div>
         );
     }
