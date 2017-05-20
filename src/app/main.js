@@ -1,52 +1,48 @@
 const { app, BrowserWindow } = require('electron');
-const path = require('path')
-const url = require('url')
+const path = require('path');
+const url = require('url');
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let win
+const WIDTH = 1280;
+const HEIGHT = 800;
+const ENTRY_HTML = path.join(__dirname, 'index.html');
+
+// Leave a global reference to the object, so the GC doesn't collect it.
+let window;
+
+app.on('ready', createWindow)
+app.on('window-all-closed', onAllWindowsClosed);
+app.on('activate', onActivate);
 
 function createWindow () {
-    // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
-
-    // and load the index.html of the app.
-    win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
-        protocol: 'file:',
-        slashes: true
-    }))
-
-    // Open the DevTools.
-    win.webContents.openDevTools()
-
-    // Emitted when the window is closed.
-    win.on('closed', () => {
-        // Dereference the window object, usually you would store windows
-        // in an array if your app supports multi windows, this is the time
-        // when you should delete the corresponding element.
-        win = null
-    })
+    window = new BrowserWindow({ width: WIDTH, height: HEIGHT })
+    window.on('closed', onWindowClosed);
+    loadHtml();
+    openDevTools();
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow)
-
-// Quit when all windows are closed.
-app.on('window-all-closed', () => {
-    // On macOS it is common for applications and their menu bar
-    // to stay active until the user quits explicitly with Cmd + Q
+function onAllWindowsClosed () {
     if (process.platform !== 'darwin') {
         app.quit()
     }
-})
+}
 
-app.on('activate', () => {
-    // On macOS it's common to re-create a window in the app when the
-    // dock icon is clicked and there are no other windows open.
-    if (win === null) {
-        createWindow()
+function onActivate () {
+    if (window === null) {
+        createWindow();
     }
-})
+}
+
+function openDevTools () {
+    window.webContents.openDevTools();
+}
+
+function loadHtml () {
+    window.loadURL(url.format({
+        pathname: ENTRY_HTML,
+        protocol: 'file:',
+        slashes: true
+    }))
+}
+function onWindowClosed () {
+    window = null;
+}
