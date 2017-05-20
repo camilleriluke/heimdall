@@ -16,3 +16,8 @@
     border-radius: 3px;
     outline: none;
 }
+
+.marginTop { margin-top: 10px; }
+.marginBottom { margin-bottom: 10px; }
+.marginLeft { margin-left: 10px; }
+.marginRight { margin-right: 10px; }
