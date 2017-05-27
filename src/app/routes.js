@@ -1,14 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Switch, Route, Router } from 'react-router';
+import { createHashHistory } from 'history';
+
 import ProtectedRoute from './components/ProtectedRoute';
 import Unlock from './pages/Unlock';
-import Entries from './pages/Entries';
+import Init from './pages/Init';
+import EntryPoint from './pages/EntryPoint';
+import Items from './pages/Items';
 
 const Routes = () => (
-    <Router>
+    <Router history={ createHashHistory() }>
         <div>
-            <ProtectedRoute path="/entries" component={ Entries } />
-            <Route component={ Unlock } />
+            <ProtectedRoute path="/items" component={ Items } />
+            <Route path="/unlock" component={ Unlock } />
+            <Route path="/init" component={ Init } />
+            <Route path="/" component={ EntryPoint } />
         </div>
     </Router>
 )
