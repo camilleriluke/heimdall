@@ -7,7 +7,7 @@ const ProtectedRoute = ({ locked, component: Component, ...rest }) => (
 )
 
 function render (props, Component, locked) {
-    if (locked) {
+    if (!locked) {
         return (<Component { ...props }/>);
     }
 
