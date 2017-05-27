@@ -1,17 +1,36 @@
 import React from 'react';
+import _ from 'lodash';
 import generalStyles from '../../styles/general.css';
 import styles from './PasswordInput.css';
 
+const DEFAULT_PLACEHOLDER = 'Password...';
+
 export default class PasswordInput extends React.Component {
     constructor (props) {
-        super();
-        this.props = props;
+        super(props);
         this.state = {
             type: 'password',
             showText: 'show',
             hideText: 'hide',
-            toggleText: 'show'
+            toggleText: 'show',
+            value: ''
         };
+        this.focus = this.focus.bind(this);
+        this.onChange = this.onChange.bind(this);
+    }
+
+    focus () {
+        this.input.focus();
+    }
+
+    onChange (event) {
+        const value = event.target.value;
+
+        this.setState({ value });
+
+        if (this.props.onChange) {
+            this.props.onChange(value);
+        }
     }
 
     toggleType () {
@@ -30,13 +49,13 @@ export default class PasswordInput extends React.Component {
     }
 
     render () {
-        const placeholder = 'Password...';
-
         return (
-            <div className={ styles.passwordInput }>
+            <div className={ `${ styles.passwordInputContainer } ${ this.props.className }` }>
                 <input
-                    className={ generalStyles.input }
-                    placeholder={ placeholder }
+                    ref={ input => { this.input = input; } }
+                    className={ `${ generalStyles.input } ${ styles.passwordInput }` }
+                    placeholder={ this.props.placeholder || DEFAULT_PLACEHOLDER }
+                    onChange={ this.onChange }
                     type={ this.state.type }
                 />
                 <span
