@@ -6,9 +6,9 @@ const path = require('path');
 const yargs = require('yargs');
 const _ = require('lodash');
 const config = require('../config.json');
-const logger = require('../src/logger');
-const utils = require('../src/utils');
-const crypto = require('../src/crypto');
+const logger = require('../src/lib/logger');
+const utils = require('../src/lib/utils');
+const crypto = require('../src/lib/crypto');
 
 const getFileContents = _.partial(utils.getFileContents, fs, path);
 const encryptFile = _.partial(utils.encryptFile, logger, crypto.encrypt, getFileContents);

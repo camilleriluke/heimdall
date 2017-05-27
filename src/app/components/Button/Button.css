@@ -1,0 +1,25 @@
+.button {
+    width: 100%;
+    padding: 13px 17px;
+    font-size: 22px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #d2d2d2;
+    outline: none;
+    color: #565656;
+}
+
+.button:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.32);
+}
+
+.green {
+    background: #60e28e;
+    color: #565656;
+}
+
+.red {
+    background: #ff7575;
+    color: white;
+}

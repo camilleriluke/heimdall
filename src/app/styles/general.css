@@ -1,0 +1,30 @@
+.page {
+    background-color: #34495e;
+    color: #f1c40f;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.input {
+    padding: 13px 17px;
+    font-size: 2rem;
+    font-weight: 300;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+}
+
+.margin { margin: 10px; }
+.marginTop { margin-top: 10px; }
+.marginBottom { margin-bottom: 10px; }
+.marginLeft { margin-left: 10px; }
+.marginRight { margin-right: 10px; }
+
+.padding { padding: 10px; }
+.paddingLeft { padding-left: 10px; }
+.paddingRight { padding-right: 10px; }
+.paddingTop { padding-top: 10px; }
+.paddingBottom { padding-bottom: 10px; }
