@@ -3,14 +3,8 @@ const webpack = require('webpack');
 
 module.exports = {
     context: resolve(__dirname, 'src'),
-
-    entry: [
-        'react-hot-loader/patch',
-        'webpack-dev-server/client?http://localhost:8080',
-        'webpack/hot/only-dev-server',
-        resolve(__dirname, 'src/app/app.js'),
-    ],
-
+    entry: resolve(__dirname, 'src/app/app.js'),
+    target: 'electron-renderer',
     output: {
         filename: 'bundle.js',
         path: resolve(__dirname, 'build'),
@@ -40,7 +34,6 @@ module.exports = {
     },
 
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin(),
+        new webpack.NamedModulesPlugin()
     ],
 };
