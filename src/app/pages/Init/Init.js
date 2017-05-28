@@ -7,7 +7,6 @@ import { createStore } from '../../actions';
 import styles from './Init.css';
 import generalStyles from '../../styles/general.css';
 import PasswordInput from '../../components/PasswordInput';
-import Row from '../../components/Row';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
 import FormDescription from '../../components/FormDescription';
