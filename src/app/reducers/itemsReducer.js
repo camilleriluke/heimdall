@@ -1,17 +1,18 @@
-const defaultState = {
-    items: []
-};
+import _ from 'lodash';
 
-export default function statusReducer (state = defaultState, action) {
+export default function statusReducer (state = [], action) {
     switch (action.type) {
+        case 'CREATE_ITEM':
+        return [ ...state, action.item ];
+
+        case 'UPDATE_ITEM':
+        return [ ...state ];
+
+        case 'DELETE_ITEM':
+        return [ ...state ];
+
         case 'UNLOCK':
-        return { ...state, items: action.items };
-
-        case 'LOCK':
-        return { ...state, items: [] };
-
-        case 'CREATE_STORE':
-        return { ...state, items: [] };
+        return action.items;
 
         default:
         return state;
