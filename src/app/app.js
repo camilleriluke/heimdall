@@ -1,6 +1,8 @@
 import React from 'react';
-import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import reducers from './reducers';
@@ -13,7 +15,11 @@ const initialState = {
     }
 };
 
-let store = createStore(reducers, initialState);
+let store = createStore(
+    reducers,
+    initialState,
+    applyMiddleware(thunk),
+);
 
 ReactDOM.render(
     <Provider store={ store }>
