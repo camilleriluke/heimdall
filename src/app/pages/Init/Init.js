@@ -1,6 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
+import { connect } from 'react-redux';
+import { history } from 'react-router';
 
+import { createStore } from '../../actions';
 import styles from './Init.css';
 import generalStyles from '../../styles/general.css';
 import PasswordInput from '../../components/PasswordInput';
@@ -11,7 +14,7 @@ import FormDescription from '../../components/FormDescription';
 import FormError from '../../components/FormError';
 import Button from '../../components/Button';
 
-export default class Unlock extends React.Component {
+class Init extends React.Component {
     constructor (props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
@@ -32,9 +35,8 @@ export default class Unlock extends React.Component {
             this.setState({ errorMessage: 'The two passwords do not match.' });
         } else {
             this.setState({ errorMessage: null });
-            console.log('------------------------------------');
-            console.log('YESSS');
-            console.log('------------------------------------');
+            this.props.createStore(password);
+            this.props.history.push('/items');
         }
     }
 
@@ -65,3 +67,16 @@ export default class Unlock extends React.Component {
         );
     }
 }
+
+function mapDispatchToProps (dispatch) {
+    return {
+        createStore: password => dispatch(createStore(password))
+    }
+}
+
+const ConnectedInit = connect(
+    () => ({}),
+    mapDispatchToProps
+)(Init);
+
+export default ConnectedInit;
