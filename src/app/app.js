@@ -49,10 +49,6 @@ function saveAndEncryptOnStoreChange (store) {
         const locked = state.status.locked;
         const password = state.status.password;
 
-        console.log('------------------------------------');
-        console.log('SAVING STORE...');
-        console.log('------------------------------------');
-
         if (!locked && password) {
             encryptStore({ items, password });
         }

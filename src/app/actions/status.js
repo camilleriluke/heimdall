@@ -3,9 +3,6 @@ export function lockStore () {
 }
 
 export function unlockStore (items, password) {
-    console.log('------------------------------------');
-    console.log('UNLOCK');
-    console.log('------------------------------------');
     return { type: 'UNLOCK', items, password };
 }
 
