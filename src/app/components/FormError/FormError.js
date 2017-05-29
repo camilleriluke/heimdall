@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import styles from './FormError.css';
+import styles from './FormError.scss';
 
 export default function FormError ({ text, className }) {
     if (_.isEmpty(text)) {
@@ -8,6 +8,6 @@ export default function FormError ({ text, className }) {
     }
 
     return (
-        <div className={ `${ styles.formError } ${ className }` }>{ text }</div>
+        <div className={ `form-error ${ className }` }>{ text }</div>
     );
 }

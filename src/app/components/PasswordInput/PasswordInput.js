@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import generalStyles from '../../styles/general.css';
-import styles from './PasswordInput.css';
+import generalStyles from '../../styles/general.scss';
+import styles from './PasswordInput.scss';
 
 const DEFAULT_PLACEHOLDER = 'Password...';
 
@@ -50,16 +50,16 @@ export default class PasswordInput extends React.Component {
 
     render () {
         return (
-            <div className={ `${ styles.passwordInputContainer } ${ this.props.className }` }>
+            <div className={ `password-input-container ${ this.props.className }` }>
                 <input
                     ref={ input => { this.input = input; } }
-                    className={ `${ generalStyles.input } ${ styles.passwordInput }` }
+                    className={ `input password-input` }
                     placeholder={ this.props.placeholder || DEFAULT_PLACEHOLDER }
                     onChange={ this.onChange }
                     type={ this.state.type }
                 />
                 <span
-                    className={ styles.passwordInputToggle }
+                    className='password-input-toggle'
                     onClick={ this.toggleType.bind(this) }
                 >
                     { this.state.toggleText }

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './NewEntry.css';
-import generalStyles from '../../styles/general.css';
+import styles from './NewEntry.scss';
+import generalStyles from '../../styles/general.scss';
 import FormError from '../../components/FormError';
 
 export default class NewEntry extends React.Component {
@@ -30,7 +30,7 @@ export default class NewEntry extends React.Component {
 
     render () {
         return (
-            <div className={ styles.newEntry }>
+            <div className='new-entry'>
                 <h2>New Entry</h2>
 
                 <FormError

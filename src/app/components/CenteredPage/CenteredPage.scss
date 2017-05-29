@@ -1,4 +1,4 @@
-.centeredContainer {
+.container-centered {
     display: flex;           /* establish flex container */
     flex-direction: column;  /* make main axis vertical */
     justify-content: center; /* center items vertically, in this case */
@@ -6,7 +6,7 @@
     height: 100%;
 }
 
-.centeredItem {
+.item-centered {
     width: auto;
     margin: 5px;
     text-align: center;

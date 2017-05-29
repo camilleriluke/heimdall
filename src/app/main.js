@@ -4,7 +4,7 @@ const url = require('url');
 
 const WIDTH = 1280;
 const HEIGHT = 800;
-const ENTRY_HTML = path.join(__dirname, 'index.html');
+const ENTRY_HTML = path.join(__dirname, '../../build/index.html');
 
 // Leave a global reference to the object, so the GC doesn't collect it.
 let window;

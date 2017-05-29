@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Button.css';
+import styles from './Button.scss';
 import _ from 'lodash';
 
 export default function Button ({
@@ -19,7 +19,5 @@ export default function Button ({
 }
 
 function getStyle (color, className) {
-    const colorClass = styles[color] ? styles[color] : {};
-
-    return `${ styles.button } ${ colorClass } ${ className }`;
+    return `button ${ color } ${ className }`;
 }

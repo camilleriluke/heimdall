@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './CenteredPage.css';
-import generalStyles from '../../styles/general.css';
+import styles from './CenteredPage.scss';
+import generalStyles from '../../styles/general.scss';
 
 export default function CenteredPage ({ children }) {
     return (
-        <div className={ generalStyles.page }>
-            <div className={ styles.centeredContainer }>
-                <div className={ styles.centeredItem }>
+        <div className='page'>
+            <div className='container-centered'>
+                <div className='item-centered'>
                     { children }
                 </div>
             </div>

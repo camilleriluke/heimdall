@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { history } from 'react-router';
 
 import { createStore } from '../../actions';
-import styles from './Init.css';
-import generalStyles from '../../styles/general.css';
+import styles from './Init.scss';
+import generalStyles from '../../styles/general.scss';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
@@ -45,7 +45,7 @@ class Init extends React.Component {
                 <Title text='Setup Storage' />
                 <FormError
                     text={ this.state.errorMessage }
-                    className={ generalStyles.marginBottom }
+                    className='margin-bottom'
                 />
 
                 <form onSubmit={ this.onSubmit }>
@@ -54,12 +54,12 @@ class Init extends React.Component {
                         ref={ password => { this.password = password; } }
                     />
                     <PasswordInput
-                        className={ generalStyles.marginTop }
+                        className='margin-top'
                         placeholder='Confirm password...'
                         ref={ confirmPassword => { this.confirmPassword = confirmPassword; } }
                     />
 
-                    <Button text='Next' color='green' className={ generalStyles.marginTop } />
+                    <Button text='Next' color='green' className='margin-top' />
                 </form>
 
             </CenteredPage>

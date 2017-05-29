@@ -7,7 +7,7 @@ export default function Items ({ items }) {
     console.log('-- ITEMS --', items);
     return (
         <div>
-            <div className={ styles.itemsHeader }>
+            <div className='items-header'>
                 <Link to='/create-item'>Create Item</Link>
             </div>
             <div>

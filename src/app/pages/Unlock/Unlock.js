@@ -1,6 +1,6 @@
 import React from 'react';
 
-import generalStyles from '../../styles/general.css';
+import generalStyles from '../../styles/general.scss';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
@@ -18,7 +18,7 @@ export default function Unlock ({
 
             <FormError
                 text={ errorMessage }
-                className={ generalStyles.marginBottom }
+                className='margin-bottom'
             />
 
             <form onSubmit={ onSubmit }>
@@ -30,7 +30,7 @@ export default function Unlock ({
                 <Button
                     text='Unlock'
                     color='green'
-                    className={ generalStyles.marginTop }
+                    className='margin-top'
                 />
             </form>
         </CenteredPage>
