@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import styles from './PasswordInput.scss';
+import './PasswordInput.scss';
 
 const DEFAULT_PLACEHOLDER = 'Password...';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
-import styles from './Items';
 import { Link } from 'react-router-dom';
+import './Items.scss';
 
 export default function Items ({ items }) {
     console.log('-- ITEMS --', items);

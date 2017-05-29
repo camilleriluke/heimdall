@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './Item.scss';
+import './Item.scss';
 
 export default function Item () {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './Button.scss';
 import _ from 'lodash';
+import './Button.scss';
 
 export default function Button ({
     text,

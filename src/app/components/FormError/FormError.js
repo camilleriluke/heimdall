@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import styles from './FormError.scss';
+import './FormError.scss';
 
 export default function FormError ({ text, className }) {
     if (_.isEmpty(text)) {

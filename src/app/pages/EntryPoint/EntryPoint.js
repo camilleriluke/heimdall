@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import styles from './EntryPoint.scss';
+import './EntryPoint.scss';
 
 function EntryPoint ({ doesStoreExist, locked }) {
     if (!doesStoreExist) {

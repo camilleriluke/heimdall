@@ -1,5 +1,4 @@
 import React from 'react';
-
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';

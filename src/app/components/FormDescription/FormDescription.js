@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './FormDescription.scss';
+import './FormDescription.scss';
 
 export default function FormDescription ({ text }) {
     return (

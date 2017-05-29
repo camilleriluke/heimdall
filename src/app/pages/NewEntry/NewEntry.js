@@ -1,6 +1,6 @@
 import React from 'react';
-import styles from './NewEntry.scss';
 import FormError from '../../components/FormError';
+import './NewEntry.scss';
 
 export default class NewEntry extends React.Component {
     constructor (props) {

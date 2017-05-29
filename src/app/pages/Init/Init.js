@@ -2,15 +2,14 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { history } from 'react-router';
-
 import { createStore } from '../../actions';
-import styles from './Init.scss';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
 import FormDescription from '../../components/FormDescription';
 import FormError from '../../components/FormError';
 import Button from '../../components/Button';
+import './Init.scss';
 
 class Init extends React.Component {
     constructor (props) {
