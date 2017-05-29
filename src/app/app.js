@@ -4,11 +4,11 @@ import _ from 'lodash';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import reducers from './reducers';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
+import './styles/main.scss';
 
 const initialState = {
     status: {

@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './NewEntry.scss';
-import generalStyles from '../../styles/general.scss';
 import FormError from '../../components/FormError';
 
 export default class NewEntry extends React.Component {
@@ -35,7 +34,7 @@ export default class NewEntry extends React.Component {
 
                 <FormError
                     text={ this.state.errorMessage }
-                    className={ generalStyles.marginBottom }
+                    className='margin-bottom'
                 />
 
                 <form onSubmit={ this.onSubmit }>

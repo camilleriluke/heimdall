@@ -1,6 +1,5 @@
 import React from 'react';
 import styles from './CenteredPage.scss';
-import generalStyles from '../../styles/general.scss';
 
 export default function CenteredPage ({ children }) {
     return (

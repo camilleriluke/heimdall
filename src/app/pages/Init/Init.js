@@ -5,7 +5,6 @@ import { history } from 'react-router';
 
 import { createStore } from '../../actions';
 import styles from './Init.scss';
-import generalStyles from '../../styles/general.scss';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import generalStyles from '../../styles/general.scss';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
