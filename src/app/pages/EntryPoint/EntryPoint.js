@@ -12,7 +12,7 @@ function EntryPoint ({ doesStoreExist, locked }) {
         return (<div><Redirect to='/unlock' /></div>);
     }
 
-    return (<div><Redirect to='/entries' /></div>);
+    return (<div><Redirect to='/items' /></div>);
 }
 
 function mapStateToProps (state) {

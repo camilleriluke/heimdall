@@ -1,14 +1,16 @@
 import React from 'react';
 import _ from 'lodash';
 import { Link } from 'react-router-dom';
+import Item from '../../components/Item';
+import LockButton from '../../components/LockButton';
 import './Items.scss';
 
 export default function Items ({ items }) {
-    console.log('-- ITEMS --', items);
     return (
         <div>
             <div className='items-header'>
                 <Link to='/create-item'>Create Item</Link>
+                <LockButton />
             </div>
             <div>
                 { loopItems(items) }
@@ -24,13 +26,7 @@ function loopItems (items) {
 
     return (
         <div>
-        { _.map(items, (item, index) => (
-              <div key={ index } >
-                    Name: { item.name } <br />
-                    Password: { item.password }
-              </div>
-          ))
-        }
+            { _.map(items, (item, index) => (<Item item={ item } key={ index } />)) }
         </div>
     );
 }
