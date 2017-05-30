@@ -4,7 +4,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
-    template: join(__dirname, 'src/app/index.html'),
+    template: join(__dirname, 'src/index.html'),
     filename: 'index.html',
     inject: 'body'
 });
@@ -16,7 +16,7 @@ const extractSassPlugin = new ExtractTextPlugin({
 
 module.exports = {
     context: resolve(__dirname, 'src'),
-    entry: resolve(__dirname, 'src/app/app.js'),
+    entry: resolve(__dirname, 'src/app.js'),
     target: 'electron-renderer',
     output: {
         filename: 'build.js',

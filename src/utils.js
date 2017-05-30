@@ -2,14 +2,13 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const Promise = require('bluebird');
-
-const utils = require('../../lib/utils');
-const crypto = require('../../lib/crypto');
-const logger = require('../../lib/logger')({});
-const { version } = require('../../package.json');
+const utils = require('../lib/utils');
+const crypto = require('../lib/crypto');
+const logger = require('../lib/logger')({});
+const { version } = require('../package.json');
+const config = require('../default.config');
 
 const ENCODING = 'utf8';
-const config = require('../../default.config');
 const getFileContents = _.partial(utils.getFileContents, fs, path);
 const encryptFile = _.partial(utils.encryptFile, logger, crypto.encrypt, getFileContents);
 const decryptFile = _.partial(utils.decryptFile, logger, crypto.decrypt, getFileContents);

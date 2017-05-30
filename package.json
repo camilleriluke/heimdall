@@ -2,7 +2,7 @@
   "name": "heimdall",
   "version": "1.0.0",
   "description": "",
-  "main": "./src/app/main.js",
+  "main": "./src/main.js",
   "dependencies": {
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",

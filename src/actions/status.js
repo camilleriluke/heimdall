@@ -1,4 +1,4 @@
-import persistedStore from '../../../lib/store';
+import persistedStore from '../../lib/store';
 
 export function lockStore () {
     clearStatus();

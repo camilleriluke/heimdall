@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, Router } from 'react-router';
 import { createHashHistory } from 'history';
-
 import ProtectedRoute from './components/ProtectedRoute';
 import Unlock from './pages/Unlock';
 import Init from './pages/Init';

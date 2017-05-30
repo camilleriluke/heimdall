@@ -7,7 +7,7 @@ import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import reducers from './reducers';
-import { get as getFromPersistedStore } from '../../lib/store';
+import { get as getFromPersistedStore } from '../lib/store';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
 import './styles/main.scss';
 
