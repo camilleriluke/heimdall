@@ -2,7 +2,6 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { history } from 'react-router';
-
 import { unlockStore } from '../../actions';
 import { decryptStore } from '../../utils';
 import Unlock from './Unlock';
