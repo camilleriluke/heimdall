@@ -7,22 +7,15 @@ import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
 import Routes from './routes';
 import reducers from './reducers';
+import { get as getFromPersistedStore } from '../lib/store';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
 import './styles/main.scss';
 
-const initialState = {
-    status: {
-        locked: true,
-        doesStoreExist: doesStoreExist()
-    }
-};
-
 let store = createStore(
     reducers,
-    initialState,
+    getInitialState(),
     applyMiddleware(thunk),
 );
-
 
 // DEVELOPMENT --------------
 window.store = store;
@@ -53,4 +46,18 @@ function saveAndEncryptOnStoreChange (store) {
             encryptStore({ items, password });
         }
     });
+}
+
+function getInitialState () {
+    const persistedStatus = getFromPersistedStore('status');
+    const persistedItems = getFromPersistedStore('items');
+
+    return {
+        items: persistedItems || [],
+        status: {
+            locked: _.get(persistedStatus, 'locked', true),
+            password: _.get(persistedStatus, 'password', null),
+            doesStoreExist: doesStoreExist()
+        }
+    };
 }
