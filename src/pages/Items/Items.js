@@ -7,12 +7,13 @@ import './Items.scss';
 
 export default function Items ({ items }) {
     return (
-        <div>
-            <div className='items-header'>
-                <Link to='/create-item'>Create Item</Link>
-                <LockButton />
+        <div className='page'>
+            <div className='page-header'>
+                <div className='page-header-title'>Heimdall</div>
+                <Link to='/create-item' className='create-item-fixed green'>+</Link>
+                <LockButton className='lock-button-fixed' />
             </div>
-            <div>
+            <div className='items'>
                 { loopItems(items) }
             </div>
         </div>
