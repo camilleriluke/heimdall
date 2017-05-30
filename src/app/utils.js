@@ -3,9 +3,9 @@ const path = require('path');
 const _ = require('lodash');
 const Promise = require('bluebird');
 
-const utils = require('../lib/utils');
-const crypto = require('../lib/crypto');
-const logger = require('../lib/logger')({});
+const utils = require('../../lib/utils');
+const crypto = require('../../lib/crypto');
+const logger = require('../../lib/logger')({});
 const { version } = require('../../package.json');
 
 const ENCODING = 'utf8';
