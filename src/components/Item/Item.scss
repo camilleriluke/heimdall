@@ -24,6 +24,16 @@ $color: black;
     text-transform: capitalize;
 }
 
+.item-copied-message {
+    position: absolute;
+    right: 132px;
+    top: 12px;
+    background: #54c77d;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
 .item-copy-password {
     position: absolute;
     right: 10px;
@@ -40,5 +50,9 @@ $color: black;
 
     &:hover {
         background-color: #e0e0e0;
+    }
+
+    &:active {
+        box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.12);
     }
 }
