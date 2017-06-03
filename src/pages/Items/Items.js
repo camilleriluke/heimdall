@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Link } from 'react-router-dom';
+import { Link } from 'redux-little-router';
 import Item from '../../components/Item';
 import LockButton from '../../components/LockButton';
 import './Items.scss';
@@ -10,7 +10,7 @@ export default function Items ({ items }) {
         <div className='page'>
             <div className='page-header'>
                 <div className='page-header-title'>Heimdall</div>
-                <Link to='/create-item' className='create-item-fixed green'>+</Link>
+                <Link href='/create-item' className='create-item-fixed green'>+</Link>
                 <LockButton className='lock-button-fixed' />
             </div>
             <div className='items'>
