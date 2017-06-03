@@ -1,29 +1,36 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { push } from 'redux-little-router';
 import './EntryPoint.scss';
 
-function EntryPoint ({ doesStoreExist, locked }) {
+function EntryPoint ({ doesStoreExist, locked, redirect }) {
     if (!doesStoreExist) {
-        return (<div><Redirect to='/init' /></div>);
+        redirect('/init');
+    } else if (locked) {
+        redirect('/unlock');
+    } else {
+        redirect('/items');
     }
 
-    if (locked) {
-        return (<div><Redirect to='/unlock' /></div>);
-    }
-
-    return (<div><Redirect to='/items' /></div>);
+    return null;
 }
 
 function mapStateToProps (state) {
     return {
         doesStoreExist: state.status.doesStoreExist,
         locked: state.status.locked
-    }
+    };
+}
+
+function mapDispatchToProps (dispatch) {
+    return {
+        redirect: url => dispatch(push(url))
+    };
 }
 
 const ConnectedEntryPoint = connect(
     mapStateToProps,
+    mapDispatchToProps
 )(EntryPoint);
 
 export default ConnectedEntryPoint;
