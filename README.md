@@ -33,11 +33,11 @@ The file format Heimdall is saving encrypted files in:
     "version": "0.1",
     "entries": [
         {
-            "name": "Github",
-            "password": "FooBar123",
-            "url": "https://github.com/login", // optional
-            "username": "foobar", // optional
-            "description": "Lorem ipsum dolor sit amet..." // optional
+            "name": "Github", // Required
+            "password": "FooBar123", // Required
+            "url": "https://github.com/login", // Optional
+            "username": "foobar", // Optional
+            "description": "Lorem ipsum dolor sit amet..." // Optional
         }
     ]
 }
