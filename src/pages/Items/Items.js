@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { Link } from 'redux-little-router';
+import Link from '../../components/Link';
 import Item from '../../components/Item';
 import LockButton from '../../components/LockButton';
 import './Items.scss';
