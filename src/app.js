@@ -2,34 +2,26 @@ import fs from 'fs';
 import React from 'react';
 import _ from 'lodash';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import { routerForBrowser, RouterProvider } from 'redux-little-router';
 import ReactDOM from 'react-dom';
-import Routes from './routes';
 import reducers from './reducers';
 import { get as getFromPersistedStore } from '../lib/store';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
-import routesConfig from './routes.config';
+import Routes from './routes';
 import './styles/main.scss';
-
-const routerConfig = routerForBrowser({ routes: routesConfig });
-const routerMiddleware = routerConfig.middleware;
-const routerEnhancer = routerConfig.enhancer;
 
 const store = createStore(
     reducers,
     getInitialState(),
-    compose(routerEnhancer, applyMiddleware(routerMiddleware, thunk))
+    applyMiddleware(thunk)
 );
 
 saveAndEncryptOnStoreChange(store);
 
 ReactDOM.render(
     <Provider store={ store }>
-        <RouterProvider store={ store }>
-            <Routes></Routes>
-        </RouterProvider>
+        <Routes></Routes>
     </Provider>,
     document.getElementById('root')
 );

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push } from 'redux-little-router';
+import { push } from '../../actions';
 import './EntryPoint.scss';
 
 function EntryPoint ({ doesStoreExist, locked, redirect }) {
