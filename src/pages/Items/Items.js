@@ -7,7 +7,7 @@ import './Items.scss';
 export default function Items ({ items }) {
     return (
         <div className='page'>
-            <Header />
+            <Header title='Items' />
             <ItemsList items={ items } />
         </div>
     );
