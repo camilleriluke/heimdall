@@ -1,31 +1,29 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
+import Route from '../Route';
+import Redirect from '../Redirect';
+import _ from 'lodash';
 
-const ProtectedRoute = ({ locked, component: Component, ...rest }) => (
-    <Route {...rest} render={ (props) => render(props, Component, locked) } />
-)
-
-function render (props, Component, locked) {
-    if (!locked) {
-        return (<Component { ...props }/>);
+function ProtectedRoute ({ isAuthenticated, children, ...props }) {
+    if (!isAuthenticated) {
+        return <Redirect path="/unlock" />;
     }
 
-    return (
-        <Redirect to={{
-            pathname: '/',
-            state: { from: props.location }
-        }}/>
-    );
+    return <Route { ...props }>{ children }</Route>;
 }
 
 function mapStateToProps (state) {
     return {
-        locked: state.status.locked
+        isAuthenticated: !_.get(state, 'status.locked', false)
     }
 }
 
-const ConnectedProtectedRoute = connect(
-    mapStateToProps,
+const ConnectedRoute = connect(
+    mapStateToProps
 )(ProtectedRoute);
 
-export default ConnectedProtectedRoute;
+export default ConnectedRoute;
+
+function matchRoute (activeRoute, route) {
+    return activeRoute === route;
+}

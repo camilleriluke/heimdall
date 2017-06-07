@@ -1,17 +1,17 @@
 import React from 'react';
 import { createHashHistory } from 'history';
-import ProtectedRoute from './components/ProtectedRoute';
 import Unlock from './pages/Unlock';
 import Init from './pages/Init';
 import EntryPoint from './pages/EntryPoint';
 import Items from './pages/Items';
 import NewEntry from './pages/NewEntry';
 import Route from './components/Route';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const Routes = () => (
     <div>
         <Route path="/create-item"><NewEntry /></Route>
-        <Route path="/items"><Items /></Route>
+        <ProtectedRoute path="/items"><Items /></ProtectedRoute>
         <Route path="/unlock"><Unlock /></Route>
         <Route path="/init"><Init /></Route>
         <Route path="/"><EntryPoint /></Route>
