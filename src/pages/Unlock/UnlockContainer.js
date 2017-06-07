@@ -1,8 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { history } from 'react-router';
-import { unlockStore } from '../../actions';
+import { unlockStore, push } from '../../actions';
 import { decryptStore } from '../../utils';
 import Unlock from './Unlock';
 
@@ -27,7 +26,7 @@ class UnlockContainer extends React.Component {
             decryptStore({ password: this.state.password })
                 .then(store => {
                     this.props.unlockStore(store.items, this.state.password);
-                    this.props.history.replace('/items')
+                    this.props.redirect('/items')
                 })
                 .catch(e => {
                     console.error(e);
@@ -50,6 +49,7 @@ class UnlockContainer extends React.Component {
 const ConnectedUnlock = connect(
     () => ({}),
     dispatch => ({
+        redirect: (path) => dispatch(push(path)),
         unlockStore: (items, password) => dispatch(unlockStore(items, password))
     })
 )(UnlockContainer);

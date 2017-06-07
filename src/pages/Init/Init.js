@@ -1,8 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
-import { history } from 'react-router';
-import { createStore } from '../../actions';
+import { createStore, push } from '../../actions';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
@@ -33,7 +32,7 @@ class Init extends React.Component {
         } else {
             this.setState({ errorMessage: null });
             this.props.createStore(password);
-            this.props.history.push('/items');
+            this.props.redirect('/items');
         }
     }
 
@@ -67,7 +66,8 @@ class Init extends React.Component {
 
 function mapDispatchToProps (dispatch) {
     return {
-        createStore: password => dispatch(createStore(password))
+        createStore: password => dispatch(createStore(password)),
+        redirect: path => dispatch(push(path))
     }
 }
 
