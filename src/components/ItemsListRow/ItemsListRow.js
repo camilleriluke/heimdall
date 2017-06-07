@@ -1,5 +1,5 @@
 import React from 'react';
-import { clipboard } from 'electron';
+import CopyToClipboard from '../CopyToClipboard';
 import './ItemsListRow.scss';
 
 const COPIED_MESSAGE_TIMEOUT = 1500;
@@ -8,15 +8,14 @@ export default class Item extends React.Component {
     constructor (props) {
         super(props);
 
-        this.copyToClipBoard = this.copyToClipBoard.bind(this);
+        this.copyToClipBoard = this.onCopy.bind(this);
         this.state = {
             displayCopyText: false
         };
     }
 
-    copyToClipBoard (text) {
+    onCopy () {
         this.setState({ displayCopyText: true });
-        clipboard.writeText(text);
         setTimeout(() => this.setState({ displayCopyText: false }), COPIED_MESSAGE_TIMEOUT);
     }
 
@@ -35,12 +34,13 @@ export default class Item extends React.Component {
             <div className='item-list-row'>
                 <div className='item-list-row-name'>{ item.name }</div>
                 { this.getCopiedMessage() }
-                <div
+                <CopyToClipboard
                     className='item-copy-password'
-                    onClick={ () => this.copyToClipBoard(item.password) }
+                    text={ item.password }
+                    onClick={ () => this.onCopy() }
                 >
                     Copy Password
-                </div>
+                </CopyToClipboard>
             </div>
         );
     }
