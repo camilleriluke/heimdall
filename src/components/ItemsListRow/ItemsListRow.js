@@ -1,6 +1,6 @@
 import React from 'react';
 import { clipboard } from 'electron';
-import './Item.scss';
+import './ItemsListRow.scss';
 
 const COPIED_MESSAGE_TIMEOUT = 1500;
 
@@ -32,8 +32,8 @@ export default class Item extends React.Component {
         const item = this.props.item;
 
         return (
-            <div className='item'>
-                <div className='item-name'>{ item.name }</div>
+            <div className='item-list-row'>
+                <div className='item-list-row-name'>{ item.name }</div>
                 { this.getCopiedMessage() }
                 <div
                     className='item-copy-password'

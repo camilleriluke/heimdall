@@ -2,7 +2,7 @@ $border: 1px solid #d8d8d8;
 $background: white;
 $color: black;
 
-.item {
+.item-list-row {
     position: relative;
     float: left;
     width: 100%;
@@ -19,7 +19,7 @@ $color: black;
     }
 }
 
-.item-name {
+.item-list-row-name {
     font-size: 18px;
     text-transform: capitalize;
 }

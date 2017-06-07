@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Link from '../../components/Link';
-import Item from '../../components/Item';
+import ItemsList from '../../components/ItemsList';
 import LockButton from '../../components/LockButton';
 import './Items.scss';
 
@@ -13,21 +13,7 @@ export default function Items ({ items }) {
                 <Link href='/create-item' className='create-item-fixed green'>+</Link>
                 <LockButton className='lock-button-fixed' />
             </div>
-            <div className='items'>
-                { loopItems(items) }
-            </div>
-        </div>
-    );
-}
-
-function loopItems (items) {
-    if (_.isEmpty(items)) {
-        return (<span>No items.</span>);
-    }
-
-    return (
-        <div>
-            { _.map(items, (item, index) => (<Item item={ item } key={ index } />)) }
+            <ItemsList items={ items } />
         </div>
     );
 }
