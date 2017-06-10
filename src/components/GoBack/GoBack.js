@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { push } from '../../actions';
+import { goBack } from '../../actions';
 import _ from 'lodash';
 
-function Link ({ redirect, href, children, ...props }) {
+function GoBack ({ goBack, children, ...props }) {
     return (
         <div
             { ...props }
-            onClick={ () => redirect(href) }
+            onClick={ () => goBack() }
         >
             { children }
         </div>
@@ -16,13 +16,13 @@ function Link ({ redirect, href, children, ...props }) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        redirect: path => dispatch(push(path))
+        goBack: path => dispatch(goBack())
     };
 }
 
-const ConnectedLink = connect(
+const ConnectedGoBack = connect(
     () => ({}),
     mapDispatchToProps
-)(Link);
+)(GoBack);
 
-export default ConnectedLink;
+export default ConnectedGoBack;

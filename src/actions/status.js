@@ -11,6 +11,7 @@ export function unlockStore (items, password) {
 }
 
 export function createStore (password) {
+    clearStatus();
     return { type: 'CREATE_STORE', password };
 }
 

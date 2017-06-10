@@ -22,25 +22,11 @@ body {
     font-weight: 300;
     border: none;
     border-radius: 3px;
+    box-sizing: border-box;
+    max-width: 100%;
     outline: none;
 }
 
-.page-header {
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: $header-height;
-    background-color: #969696;
-}
-.page-header-title {
-    width: 100%;
-    color: #5a5a5a;
-    text-align: center;
-    font-weight: bold;
-    line-height: 48px;
-    font-size: 20px;
-}
 .lock-button-fixed {
     position: absolute;
     right: 10px;

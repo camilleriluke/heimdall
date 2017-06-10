@@ -2,7 +2,7 @@ $border: 1px solid #d8d8d8;
 $background: white;
 $color: black;
 
-.item {
+.item-list-row {
     position: relative;
     float: left;
     width: 100%;
@@ -13,13 +13,14 @@ $color: black;
     background-color: $background;
     color: $color;
     box-sizing: border-box;
+    text-decoration: none;
 
     &:last-child {
         border-bottom: none;
     }
 }
 
-.item-name {
+.item-list-row-name {
     font-size: 18px;
     text-transform: capitalize;
 }

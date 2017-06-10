@@ -12,7 +12,7 @@ export default class PasswordInput extends React.Component {
             showText: 'show',
             hideText: 'hide',
             toggleText: 'show',
-            value: ''
+            value: this.props.value || ''
         };
         this.focus = this.focus.bind(this);
         this.onChange = this.onChange.bind(this);
@@ -52,9 +52,11 @@ export default class PasswordInput extends React.Component {
             <div className={ `password-input-container ${ this.props.className }` }>
                 <input
                     ref={ input => { this.input = input; } }
+                    name={ this.props.name || '' }
                     className={ `input password-input` }
                     placeholder={ this.props.placeholder || DEFAULT_PLACEHOLDER }
                     onChange={ this.onChange }
+                    value={ this.state.value }
                     type={ this.state.type }
                 />
                 <span

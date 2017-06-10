@@ -43,12 +43,20 @@ function getInitialState () {
     const persistedStatus = getFromPersistedStore('status');
     const persistedItems = getFromPersistedStore('items');
 
+    if (!doesStoreExist()) {
+        return {
+            status: {
+                doesStoreExist: false
+            }
+        };
+    }
+
     return {
         items: persistedItems || [],
         status: {
             locked: _.get(persistedStatus, 'locked', true),
             password: _.get(persistedStatus, 'password', null),
-            doesStoreExist: doesStoreExist()
+            doesStoreExist: true
         }
     };
 }

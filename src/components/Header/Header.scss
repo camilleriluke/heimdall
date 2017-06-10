@@ -1,0 +1,28 @@
+@import "../../styles/variables";
+
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: $header-height;
+    background-color: #969696;
+}
+
+.header-title {
+    width: 100%;
+    color: #5a5a5a;
+    text-align: center;
+    font-weight: bold;
+    line-height: 48px;
+    font-size: 20px;
+}
+
+.header-go-back {
+    position: absolute;
+    top: 0px;
+    line-height: 49px;
+    left: 19px;
+    color: white;
+    cursor: pointer;
+}

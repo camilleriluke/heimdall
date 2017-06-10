@@ -1,33 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
-import Link from '../../components/Link';
-import Item from '../../components/Item';
-import LockButton from '../../components/LockButton';
+import Header from '../../components/Header';
+import ItemsList from '../../components/ItemsList';
 import './Items.scss';
 
 export default function Items ({ items }) {
     return (
         <div className='page'>
-            <div className='page-header'>
-                <div className='page-header-title'>Heimdall</div>
-                <Link href='/create-item' className='create-item-fixed green'>+</Link>
-                <LockButton className='lock-button-fixed' />
-            </div>
-            <div className='items'>
-                { loopItems(items) }
-            </div>
-        </div>
-    );
-}
-
-function loopItems (items) {
-    if (_.isEmpty(items)) {
-        return (<span>No items.</span>);
-    }
-
-    return (
-        <div>
-            { _.map(items, (item, index) => (<Item item={ item } key={ index } />)) }
+            <Header title='Items' />
+            <ItemsList items={ items } />
         </div>
     );
 }
