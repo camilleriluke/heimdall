@@ -6,7 +6,7 @@ import './Item.scss';
 export default function Item ({ item, onUpdate, onDelete }) {
     return (
         <div className='page'>
-            <Header title={ item.name } />
+            <Header title={ item.name } displayBackButton />
             <ItemForm
                 item={ item }
                 onUpdate={ onUpdate }
