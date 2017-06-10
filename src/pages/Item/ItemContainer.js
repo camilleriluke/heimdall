@@ -32,7 +32,8 @@ function mapDispatchToProps (dispatch) {
 }
 
 const ConnectedItemContainer = connect(
-    mapStateToProps
+    mapStateToProps,
+    mapDispatchToProps
 )(ItemContainer);
 
 export default ConnectedItemContainer;

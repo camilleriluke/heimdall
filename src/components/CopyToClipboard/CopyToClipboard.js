@@ -1,7 +1,6 @@
 import React from 'react';
 import { clipboard } from 'electron';
 import _ from 'lodash';
-import styles from './CopyToClipboard.css';
 
 export default function CopyToClipboard ({ text = '', onClick = _.noop, children, ...props }) {
     return (

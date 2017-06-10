@@ -11,12 +11,12 @@ const defaultState = {
 export default function statusReducer (state = null, action) {
     switch (action.type) {
         case 'UPDATE_ITEM':
-        return { ...defaultState, ...action.item };
+        return action.item;
 
         case 'DELETE_ITEM':
         return null;
 
         default:
-        return null;
+        return state;
     };
 }

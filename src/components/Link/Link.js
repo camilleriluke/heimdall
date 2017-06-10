@@ -3,24 +3,20 @@ import { connect } from 'react-redux';
 import { push } from '../../actions';
 import _ from 'lodash';
 
-function Link ({ navigate, href, children, ...props }) {
+function Link ({ redirect, href, children, ...props }) {
     return (
-        <a
+        <div
             { ...props }
-            href={ href }
-            onClick={ (e) => {
-                e.preventDefault();
-                navigate(href);
-            }}
+            onClick={ () => redirect(href) }
         >
             { children }
-        </a>
+        </div>
     );
 }
 
 function mapDispatchToProps (dispatch) {
     return {
-        navigate: path => dispatch(push(path))
+        redirect: path => dispatch(push(path))
     };
 }
 

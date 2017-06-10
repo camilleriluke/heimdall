@@ -1,1 +1,1 @@
-export { default } from './ItemsListRow';
+export { default } from './ItemsListRowContainer';
