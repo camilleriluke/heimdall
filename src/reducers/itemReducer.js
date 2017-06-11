@@ -10,10 +10,10 @@ const defaultState = {
 
 export default function statusReducer (state = null, action) {
     switch (action.type) {
-        case 'UPDATE_ITEM':
+        case 'SET_ACTIVE_ITEM':
         return action.item;
 
-        case 'DELETE_ITEM':
+        case 'UNSET_ACTIVE_ITEM':
         return null;
 
         default:
