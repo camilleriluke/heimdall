@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import { types } from '../actions/items';
 
 const defaultState = {
     name: '',
@@ -10,10 +11,10 @@ const defaultState = {
 
 export default function statusReducer (state = null, action) {
     switch (action.type) {
-        case 'SET_ACTIVE_ITEM':
+        case types.SET_ACTIVE_ITEM:
         return action.item;
 
-        case 'UNSET_ACTIVE_ITEM':
+        case types.UNSET_ACTIVE_ITEM:
         return null;
 
         default:
