@@ -1,16 +1,17 @@
 import _ from 'lodash';
 import { uuid } from '../utils';
+import { types } from '../actions/items';
 
 export default function statusReducer (state = [], action) {
     switch (action.type) {
-        case 'CREATE_ITEM':
+        case types.CREATE_ITEM:
         action.item.id = uuid();
         return [ ...state, action.item ];
 
-        case 'UPDATE_ITEM':
+        case types.UPDATE_ITEM:
         return [ ...state ];
 
-        case 'DELETE_ITEM':
+        case types.DELETE_ITEM:
         return [ ...state ];
 
         case 'UNLOCK':
