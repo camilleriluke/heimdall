@@ -1,8 +1,8 @@
 import React from 'react';
 import FormError from '../../components/FormError';
-import './NewEntry.scss';
+import './NewItem.scss';
 
-export default class NewEntry extends React.Component {
+export default class NewItem extends React.Component {
     constructor (props) {
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
