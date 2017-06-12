@@ -13,6 +13,8 @@ export function persistState () {
 }
 
 export function clearPersistedState () {
-    persistedStore.remove('status');
-    persistedStore.remove('items');
+    return () => {
+        persistedStore.remove('status');
+        persistedStore.remove('items');
+    };
 }
