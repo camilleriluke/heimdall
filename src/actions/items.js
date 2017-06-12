@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import { push } from './router';
+import { persistState, clearPersistedState } from './persist';
 
 export const types = {
     CREATE_ITEM: 'CREATE_ITEM',
@@ -17,9 +19,11 @@ const DEFAULT_ITEM = {
 };
 
 export function createItem (item) {
-    item = _.extend({}, DEFAULT_ITEM, item);
-
-    return { type: types.CREATE_ITEM, item };
+    return dispatch => {
+        dispatch({ type: types.CREATE_ITEM, item });
+        dispatch(persistState());
+        dispatch(push('/items'));
+    };
 }
 
 export function updateItem (item) {

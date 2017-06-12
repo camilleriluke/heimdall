@@ -1,26 +1,22 @@
-import persistedStore from '../../lib/store';
+import { persistState, clearPersistedState } from './persist';
 
 export function lockStore () {
-    clearStatus();
-    return { type: 'LOCK' };
+    return (dispatch) => {
+        dispatch({ type: 'LOCK' });
+        dispatch(clearPersistedState());
+    };
 }
 
 export function unlockStore (items, password) {
-    persistStatus(items, password);
-    return { type: 'UNLOCK', items, password };
+    return (dispatch) => {
+        dispatch({ type: 'UNLOCK', items, password });
+        dispatch(persistState());
+    };
 }
 
 export function createStore (password) {
-    clearStatus();
-    return { type: 'CREATE_STORE', password };
-}
-
-function persistStatus (items, password) {
-    persistedStore.set('status', { locked: false, password });
-    persistedStore.set('items', items);
-}
-
-function clearStatus () {
-    persistedStore.remove('status')
-    persistedStore.remove('items')
+    return (dispatch) => {
+        dispatch({ type: 'CREATE_STORE', password });
+        dispatch(clearPersistedState());
+    };
 }
