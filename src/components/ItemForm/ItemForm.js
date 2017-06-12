@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
+import TextInput from '../TextInput';
 import Button from '../Button';
 import './ItemForm.scss';
 
@@ -19,14 +20,8 @@ export default class ItemForm extends React.Component {
         };
     }
 
-    handleChange (event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        this.setState({
-            [name]: value
-        });
+    handleChange ({ name, value }) {
+        this.setState({ [name]: value });
     }
 
     onSubmit (event) {
@@ -41,26 +36,22 @@ export default class ItemForm extends React.Component {
         return (
             <div className='item-form'>
                 <form onSubmit={ this.onSubmit }>
-                    <input
+                    <TextInput
                         name='name'
-                        type='text'
-                        className='input'
                         placeholder='Name...'
                         value={ this.state.name }
                         onChange={ this.handleChange }
                     />
-                    <input
+                    <TextInput
                         name='username'
-                        type='text'
-                        className='input margin-top'
+                        className='margin-top'
                         placeholder='Username...'
                         value={ this.state.username }
                         onChange={ this.handleChange }
                     />
-                    <input
+                    <TextInput
                         name='url'
-                        type='text'
-                        className='input margin-top'
+                        className='margin-top'
                         placeholder='URL...'
                         value={ this.state.url }
                         onChange={ this.handleChange }

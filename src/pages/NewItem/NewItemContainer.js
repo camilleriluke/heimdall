@@ -6,7 +6,7 @@ import NewItem from './NewItem';
 function NewItemContainer ({ createItem }) {
     return (
         <NewItem
-            onSubmit={ item => createItem(item) }
+            onUpdate={ item => createItem(item) }
         />
     );
 }
