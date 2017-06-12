@@ -40,7 +40,7 @@ class UnlockContainer extends React.Component {
             <Unlock
                 errorMessage={ this.state.errorMessage }
                 onSubmit={ this.onSubmit }
-                onPasswordChange={ password => this.setState({ password }) }
+                onPasswordChange={ ({ value }) => this.setState({ password: value }) }
             />
         );
     }
