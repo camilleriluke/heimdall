@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateItem, push } from '../../actions';
+import { setActiveItem, push } from '../../actions';
 import CopyToClipboard from '../CopyToClipboard';
 import ItemsListRow from './ItemsListRow';
 
@@ -23,7 +23,7 @@ class ItemsListRowContainer extends React.Component {
     }
 
     onClick () {
-        this.props.updateItem(this.props.item);
+        this.props.setActiveItem(this.props.item);
         this.props.redirect('/item');
     }
 
@@ -41,7 +41,7 @@ class ItemsListRowContainer extends React.Component {
 
 function mapDispatchToProps (dispatch) {
     return {
-        updateItem: item => dispatch(updateItem(item)),
+        setActiveItem: item => dispatch(setActiveItem(item)),
         redirect: path => dispatch(push(path))
     };
 }
