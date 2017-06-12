@@ -45,7 +45,10 @@ function getInitialState () {
 
     if (!doesStoreExist()) {
         return {
+            items: [],
             status: {
+                locked: true,
+                password: null,
                 doesStoreExist: false
             }
         };
