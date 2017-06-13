@@ -28,9 +28,9 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-const ConnectedEntryPoint = connect(
+const Connected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(EntryPoint);
 
-export default ConnectedEntryPoint;
+export default Connected;

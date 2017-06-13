@@ -24,9 +24,9 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-const ConnectedRedirect = connect(
+const Connected = connect(
     () => ({}),
     mapDispatchToProps
 )(Redirect);
 
-export default ConnectedRedirect;
+export default Connected;

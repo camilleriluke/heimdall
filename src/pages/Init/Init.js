@@ -71,9 +71,9 @@ function mapDispatchToProps (dispatch) {
     }
 }
 
-const ConnectedInit = connect(
+const Connected = connect(
     () => ({}),
     mapDispatchToProps
 )(Init);
 
-export default ConnectedInit;
+export default Connected;

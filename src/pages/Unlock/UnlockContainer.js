@@ -46,7 +46,7 @@ class UnlockContainer extends React.Component {
     }
 }
 
-const ConnectedUnlock = connect(
+const Connected = connect(
     () => ({}),
     dispatch => ({
         redirect: (path) => dispatch(push(path)),
@@ -54,4 +54,4 @@ const ConnectedUnlock = connect(
     })
 )(UnlockContainer);
 
-export default ConnectedUnlock;
+export default Connected;

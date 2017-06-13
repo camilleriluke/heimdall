@@ -31,9 +31,9 @@ function mapDispatchToProps (dispatch) {
     }
 }
 
-const ConnectedItemContainer = connect(
+const Connected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ItemContainer);
 
-export default ConnectedItemContainer;
+export default Connected;

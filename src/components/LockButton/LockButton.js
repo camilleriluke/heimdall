@@ -24,9 +24,9 @@ function mapDispatchToProps (dispatch) {
     }
 }
 
-const ConnectedLockButton = connect(
+const Connected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(LockButton);
 
-export default ConnectedLockButton;
+export default Connected;
