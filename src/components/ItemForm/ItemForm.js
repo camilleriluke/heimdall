@@ -9,7 +9,7 @@ export default class ItemForm extends React.Component {
     constructor (props) {
         super(props);
 
-        const item = this.props.item;
+        const item = this.props.item || {};
 
         this.onSubmit = this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);

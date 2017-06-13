@@ -10,7 +10,6 @@ export default function Item ({ item, onUpdate, onDelete }) {
             <ItemForm
                 item={ item }
                 onUpdate={ onUpdate }
-                onDelete={ onDelete }
             />
         </div>
     );
