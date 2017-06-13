@@ -26,8 +26,8 @@ export default class ItemForm extends React.Component {
     onSubmit (event) {
         event.preventDefault();
 
-        if (this.props.onUpdate) {
-            this.props.onUpdate(this.state.item);
+        if (this.props.onSubmit) {
+            this.props.onSubmit(this.state.item);
         }
     }
 

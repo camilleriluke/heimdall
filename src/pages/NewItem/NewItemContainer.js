@@ -6,16 +6,20 @@ import NewItem from './NewItem';
 function NewItemContainer ({ createItem }) {
     return (
         <NewItem
-            onUpdate={ item => createItem(item) }
+            onSubmit={ item => createItem(item) }
         />
     );
 }
 
+function mapDispatchToProps (dispatch) {
+    return {
+        createItem: item => dispatch(createItem(item))
+    };
+}
+
 const Connected = connect(
     () => ({}),
-    dispatch => ({
-        createItem: item => dispatch(createItem(item))
-    })
+    mapDispatchToProps
 )(NewItemContainer);
 
 export default Connected;
