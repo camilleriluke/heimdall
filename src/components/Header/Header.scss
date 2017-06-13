@@ -18,6 +18,12 @@
     font-size: 20px;
 }
 
+.header-buttons {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+}
+
 .header-go-back {
     position: absolute;
     top: 0px;
@@ -25,4 +31,14 @@
     left: 19px;
     color: white;
     cursor: pointer;
+}
+
+.header-button {
+    width: auto;
+    font-size: 13px;
+    margin-top: 10px;
+    padding: 8px 13px 7px 13px;
+    background-color: #545454;
+    color: white;
+    text-transform: uppercase;
 }

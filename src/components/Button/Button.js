@@ -5,12 +5,13 @@ import './Button.scss';
 export default function Button ({
     text,
     color,
+    size,
     onClick = _.noop,
     className = ''
 }) {
     return (
         <button
-            className={ getStyle(color, className) }
+            className={ getStyle(color, size, className) }
             onClick={ onClick }
         >
             { text }
@@ -18,6 +19,9 @@ export default function Button ({
     );
 }
 
-function getStyle (color, className) {
-    return `button ${ color } ${ className }`;
+function getStyle (color, size, className) {
+    color = `button-${ color }`;
+    size = `button-${ size }`;
+
+    return `button ${ color } ${ size } ${ className }`;
 }
