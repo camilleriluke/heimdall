@@ -27,7 +27,11 @@ export function createItem (item) {
 }
 
 export function updateItem (item) {
-    return { type: types.UPDATE_ITEM, item };
+    return dispatch => {
+        dispatch({ type: types.UPDATE_ITEM, item });
+        dispatch(persistState());
+        dispatch(unsetActiveItem());
+    };
 }
 
 export function deleteItem (item) {

@@ -9,26 +9,25 @@ export default class ItemForm extends React.Component {
     constructor (props) {
         super(props);
 
+        const item = this.props.item;
+
         this.onSubmit = this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            name: _.get(this, 'props.item.name', ''),
-            username: _.get(this, 'props.item.username', ''),
-            password: _.get(this, 'props.item.password', ''),
-            url: _.get(this, 'props.item.url', ''),
-            description: _.get(this, 'props.item.description', '')
-        };
+        this.state = { item };
     }
 
     handleChange ({ name, value }) {
-        this.setState({ [name]: value });
+        const item = this.state.item;
+
+        item[name] = value;
+        this.setState({ item });
     }
 
     onSubmit (event) {
         event.preventDefault();
 
         if (this.props.onUpdate) {
-            this.props.onUpdate(this.state);
+            this.props.onUpdate(this.state.item);
         }
     }
 
@@ -39,28 +38,28 @@ export default class ItemForm extends React.Component {
                     <TextInput
                         name='name'
                         placeholder='Name...'
-                        value={ this.state.name }
+                        value={ this.state.item.name }
                         onChange={ this.handleChange }
                     />
                     <TextInput
                         name='username'
                         className='margin-top'
                         placeholder='Username...'
-                        value={ this.state.username }
+                        value={ this.state.item.username }
                         onChange={ this.handleChange }
                     />
                     <TextInput
                         name='url'
                         className='margin-top'
                         placeholder='URL...'
-                        value={ this.state.url }
+                        value={ this.state.item.url }
                         onChange={ this.handleChange }
                     />
                     <PasswordInput
                         name='password'
                         className='margin-top'
                         placeholder='Password'
-                        value={ this.state.password }
+                        value={ this.state.item.password }
                         onChange={ this.handleChange }
                     />
                     <Button
