@@ -1,3 +1,5 @@
+import { types } from '../actions/status';
+
 const defaultState = {
     locked: true,
     doesStoreExist: false,
@@ -6,21 +8,21 @@ const defaultState = {
 
 export default function statusReducer (state = defaultState, action) {
     switch (action.type) {
-        case 'UNLOCK':
+        case types.UNLOCK:
         return {
             ...state,
             locked: false,
             password: action.password
         };
 
-        case 'LOCK':
+        case types.LOCK:
         return {
             ...state,
             locked: true,
             password: null
         };
 
-        case 'CREATE_STORE':
+        case types.CREATE_STORE:
         return {
             ...state,
             locked: false,

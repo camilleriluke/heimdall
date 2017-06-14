@@ -10,6 +10,8 @@ class ItemsListRowContainer extends React.Component {
     constructor (props) {
         super(props);
 
+        this.onClick = this.onClick.bind(this);
+        this.onCopy = this.onCopy.bind(this);
         this.state = {
             displayCopyText: false
         };

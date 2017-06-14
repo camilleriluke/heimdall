@@ -38,6 +38,6 @@ export function setActiveItem (item) {
     return { type: types.SET_ACTIVE_ITEM, item };
 }
 
-export function unsetActiveItem (item) {
-    return { type: types.UNSET_ACTIVE_ITEM, item };
+export function unsetActiveItem () {
+    return { type: types.UNSET_ACTIVE_ITEM };
 }
