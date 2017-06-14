@@ -1,4 +1,6 @@
 import _ from 'lodash';
+import { push } from './router';
+import { persistState, clearPersistedState } from './persist';
 
 export const types = {
     CREATE_ITEM: 'CREATE_ITEM',
@@ -17,13 +19,19 @@ const DEFAULT_ITEM = {
 };
 
 export function createItem (item) {
-    item = _.extend({}, DEFAULT_ITEM, item);
-
-    return { type: types.CREATE_ITEM, item };
+    return dispatch => {
+        dispatch({ type: types.CREATE_ITEM, item });
+        dispatch(persistState());
+        dispatch(push('/items'));
+    };
 }
 
 export function updateItem (item) {
-    return { type: types.UPDATE_ITEM, item };
+    return dispatch => {
+        dispatch({ type: types.UPDATE_ITEM, item });
+        dispatch(persistState());
+        dispatch(unsetActiveItem());
+    };
 }
 
 export function deleteItem (item) {
@@ -34,6 +42,6 @@ export function setActiveItem (item) {
     return { type: types.SET_ACTIVE_ITEM, item };
 }
 
-export function unsetActiveItem (item) {
-    return { type: types.UNSET_ACTIVE_ITEM, item };
+export function unsetActiveItem () {
+    return { type: types.UNSET_ACTIVE_ITEM };
 }

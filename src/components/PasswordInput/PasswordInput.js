@@ -23,12 +23,14 @@ export default class PasswordInput extends React.Component {
     }
 
     onChange (event) {
-        const value = event.target.value;
+        const target = event.target;
+        const value = target.value;
+        const name = target.name;
 
         this.setState({ value });
 
         if (this.props.onChange) {
-            this.props.onChange(value);
+            this.props.onChange({ name, value });
         }
     }
 

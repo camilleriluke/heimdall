@@ -1,6 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
+import TextInput from '../TextInput';
 import Button from '../Button';
 import './ItemForm.scss';
 
@@ -8,32 +9,25 @@ export default class ItemForm extends React.Component {
     constructor (props) {
         super(props);
 
+        const item = this.props.item || {};
+
         this.onSubmit = this.onSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
-        this.state = {
-            name: _.get(this, 'props.item.name', ''),
-            username: _.get(this, 'props.item.username', ''),
-            password: _.get(this, 'props.item.password', ''),
-            url: _.get(this, 'props.item.url', ''),
-            description: _.get(this, 'props.item.description', '')
-        };
+        this.state = { item };
     }
 
-    handleChange (event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+    handleChange ({ name, value }) {
+        const item = this.state.item;
 
-        this.setState({
-            [name]: value
-        });
+        item[name] = value;
+        this.setState({ item });
     }
 
     onSubmit (event) {
         event.preventDefault();
 
-        if (this.props.onUpdate) {
-            this.props.onUpdate(this.state);
+        if (this.props.onSubmit) {
+            this.props.onSubmit(this.state.item);
         }
     }
 
@@ -41,35 +35,31 @@ export default class ItemForm extends React.Component {
         return (
             <div className='item-form'>
                 <form onSubmit={ this.onSubmit }>
-                    <input
+                    <TextInput
                         name='name'
-                        type='text'
-                        className='input'
                         placeholder='Name...'
-                        value={ this.state.name }
+                        value={ this.state.item.name }
                         onChange={ this.handleChange }
                     />
-                    <input
+                    <TextInput
                         name='username'
-                        type='text'
-                        className='input margin-top'
+                        className='margin-top'
                         placeholder='Username...'
-                        value={ this.state.username }
+                        value={ this.state.item.username }
                         onChange={ this.handleChange }
                     />
-                    <input
+                    <TextInput
                         name='url'
-                        type='text'
-                        className='input margin-top'
+                        className='margin-top'
                         placeholder='URL...'
-                        value={ this.state.url }
+                        value={ this.state.item.url }
                         onChange={ this.handleChange }
                     />
                     <PasswordInput
                         name='password'
                         className='margin-top'
                         placeholder='Password'
-                        value={ this.state.password }
+                        value={ this.state.item.password }
                         onChange={ this.handleChange }
                     />
                     <Button

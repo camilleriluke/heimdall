@@ -20,9 +20,9 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-const ConnectedGoBack = connect(
+const Connected = connect(
     () => ({}),
     mapDispatchToProps
 )(GoBack);
 
-export default ConnectedGoBack;
+export default Connected;

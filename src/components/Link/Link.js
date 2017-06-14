@@ -20,9 +20,9 @@ function mapDispatchToProps (dispatch) {
     };
 }
 
-const ConnectedLink = connect(
+const Connected = connect(
     () => ({}),
     mapDispatchToProps
 )(Link);
 
-export default ConnectedLink;
+export default Connected;

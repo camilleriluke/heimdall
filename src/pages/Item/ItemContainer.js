@@ -4,12 +4,12 @@ import Redirect from '../../components/Redirect';
 import { updateItem, deleteItem } from '../../actions';
 import Item from './Item';
 
-function ItemContainer ({ item, onUpdate, onDelete }) {
+function ItemContainer ({ item, onSubmit, onDelete }) {
     if (item) {
         return (
             <Item
                 item={ item }
-                onUpdate={ onUpdate }
+                onSubmit={ onSubmit }
                 onDelete={ onDelete }
             />
         );
@@ -26,14 +26,14 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        onUpdate: item => dispatch(updateItem(item)),
+        onSubmit: item => dispatch(updateItem(item)),
         onDelete: () => dispatch(deleteItem())
     }
 }
 
-const ConnectedItemContainer = connect(
+const Connected = connect(
     mapStateToProps,
     mapDispatchToProps
 )(ItemContainer);
 
-export default ConnectedItemContainer;
+export default Connected;

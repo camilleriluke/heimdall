@@ -3,14 +3,13 @@ import Header from '../../components/Header';
 import ItemForm from '../../components/ItemForm';
 import './Item.scss';
 
-export default function Item ({ item, onUpdate, onDelete }) {
+export default function Item ({ item, onSubmit, onDelete }) {
     return (
         <div className='page'>
             <Header title={ item.name } displayBackButton />
             <ItemForm
                 item={ item }
-                onUpdate={ onUpdate }
-                onDelete={ onDelete }
+                onSubmit={ onSubmit }
             />
         </div>
     );

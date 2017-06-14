@@ -40,13 +40,13 @@ class UnlockContainer extends React.Component {
             <Unlock
                 errorMessage={ this.state.errorMessage }
                 onSubmit={ this.onSubmit }
-                onPasswordChange={ password => this.setState({ password }) }
+                onPasswordChange={ ({ value }) => this.setState({ password: value }) }
             />
         );
     }
 }
 
-const ConnectedUnlock = connect(
+const Connected = connect(
     () => ({}),
     dispatch => ({
         redirect: (path) => dispatch(push(path)),
@@ -54,4 +54,4 @@ const ConnectedUnlock = connect(
     })
 )(UnlockContainer);
 
-export default ConnectedUnlock;
+export default Connected;

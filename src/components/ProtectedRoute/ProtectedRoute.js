@@ -18,11 +18,11 @@ function mapStateToProps (state) {
     }
 }
 
-const ConnectedRoute = connect(
+const Connected = connect(
     mapStateToProps
 )(ProtectedRoute);
 
-export default ConnectedRoute;
+export default Connected;
 
 function matchRoute (activeRoute, route) {
     return activeRoute === route;

@@ -6,10 +6,10 @@ function ItemsContainer ({ items }) {
     return <Items items={ items } />;
 }
 
-const ConnectedItems = connect(
+const Connected = connect(
     state => ({
         items: state.items
     })
 )(ItemsContainer);
 
-export default ConnectedItems;
+export default Connected;
