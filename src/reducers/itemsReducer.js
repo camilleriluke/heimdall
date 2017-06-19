@@ -2,7 +2,6 @@ import _ from 'lodash';
 import { types } from '../actions/items';
 import { types as statusTypes } from '../actions/status';
 import { uuid } from '../utils';
-import { types } from '../actions/items';
 
 export default function statusReducer (state = [], action) {
     switch (action.type) {
