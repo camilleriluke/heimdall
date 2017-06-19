@@ -10,20 +10,16 @@ export default function statusReducer (state = [], action) {
             return [ ...state, action.item ];
 
         case types.UPDATE_ITEM:
-            const newItem = action.item;
-            const newState = state.map(item => {
-                if (item.id === newItem.id) {
-                    return _.extend({}, item, newItem);
+            return state.map(item => {
+                if (item.id === action.item.id) {
+                    return _.extend({}, item, action.item);
                 }
 
                 return item;
             });
 
-
-            return [ ...newState ];
-
         case types.DELETE_ITEM:
-            return [ ...state ];
+            return state.filter(item => item.id !== action.item.id);
 
         case statusTypes.UNLOCK:
             return action.items;
