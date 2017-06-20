@@ -1,5 +1,6 @@
 import React from 'react';
 import GoBack from '../GoBack';
+import Icon from '../Icon';
 import './Header.scss';
 
 export default function Header ({ title, displayBackButton, children }) {
@@ -14,7 +15,12 @@ export default function Header ({ title, displayBackButton, children }) {
 
 function getBackButton (displayBackButton) {
     if (displayBackButton) {
-        return <GoBack className='header-go-back'>Back</GoBack>
+        return (
+            <GoBack className='header-go-back'>
+                <Icon icon='ion-ios-arrow-back' className='padding-right' />
+                Back
+            </GoBack>
+        );
     }
 
     return null;
