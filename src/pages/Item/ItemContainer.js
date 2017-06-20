@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Redirect from '../../components/Redirect';
-import { updateItem, deleteItem } from '../../actions';
+import { updateItem, deleteItem, confirm } from '../../actions';
 import Item from './Item';
 
-function ItemContainer ({ item, onSubmit, onDelete }) {
+function ItemContainer ({ item, onSubmit, deleteItem }) {
     if (item) {
         return (
             <Item
                 item={ item }
                 onSubmit={ onSubmit }
-                onDelete={ onDelete }
+                deleteItem={ deleteItem }
             />
         );
     }
@@ -27,7 +27,12 @@ function mapStateToProps (state) {
 function mapDispatchToProps (dispatch) {
     return {
         onSubmit: item => dispatch(updateItem(item)),
-        onDelete: () => dispatch(deleteItem())
+        deleteItem: item => {
+            const text = 'Do you want to delete?';
+            const postAction = deleteItem(item);
+
+            dispatch(confirm(text, postAction));
+        }
     }
 }
 

@@ -8,9 +8,11 @@ import Item from './pages/Item';
 import NewItem from './pages/NewItem';
 import Route from './components/Route';
 import ProtectedRoute from './components/ProtectedRoute';
+import ConfirmDialog from './components/ConfirmDialog';
 
 const Routes = () => (
     <div>
+        <ConfirmDialog />
         <ProtectedRoute path="/create-item"><NewItem /></ProtectedRoute>
         <ProtectedRoute path="/items"><Items /></ProtectedRoute>
         <ProtectedRoute path="/item"><Item /></ProtectedRoute>

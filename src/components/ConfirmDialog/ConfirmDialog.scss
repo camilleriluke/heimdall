@@ -1,0 +1,66 @@
+$confirm-dialog-width: 300px;
+$confirm-dialog-overlay-color: rgba(0, 0, 0, 0.5) !default;
+$confirm-dialog-background-color: white !default;
+$confirm-dialog-color: #5f5f5f !default;
+$confirm-dialog-cancel-color: #a5a5a5 !default;
+$confirm-dialog-confirm-color: #38b138 !default;
+$confirm-dialog-spacing: 20px !default;
+
+.confirm-dialog {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+}
+
+.confirm-dialog-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: $confirm-dialog-overlay-color;
+}
+
+.confirm-dialog-content {
+    position: absolute;
+    width: $confirm-dialog-width;
+    max-width: 100%;
+    background-color: $confirm-dialog-background-color;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -70%);
+    margin: 0;
+    padding: $confirm-dialog-spacing;
+}
+
+.confirm-dialog-text {
+    color: $confirm-dialog-color;
+    font-size: 19px;
+}
+
+.confirm-dialog-actions {
+    margin-top: $confirm-dialog-spacing;
+    text-align: center;
+}
+
+.confirm-dialog-cancel,
+.confirm-dialog-confirm {
+    cursor: pointer;
+    border-radius: 100px;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.confirm-dialog-cancel {
+    background-color: $confirm-dialog-cancel-color;
+    color: white;
+}
+
+.confirm-dialog-confirm {
+    margin-left: $confirm-dialog-spacing;
+    background-color: $confirm-dialog-confirm-color;
+    color: white;
+}

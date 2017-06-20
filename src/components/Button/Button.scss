@@ -14,12 +14,12 @@
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.32);
 }
 
-.button-green {
+.button.button-green {
     background: #60e28e;
     color: #565656;
 }
 
-.button-red {
-    background: #ff7575;
+.button.button-red {
+    background-color: #ff7575;
     color: white;
 }
