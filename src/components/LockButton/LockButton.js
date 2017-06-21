@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { lockStore } from '../../actions'
+import Icon from '../Icon';
 import './LockButton.scss';
 
 function LockButton ({ lock, text = 'Lock', className }) {
@@ -9,6 +10,7 @@ function LockButton ({ lock, text = 'Lock', className }) {
             className={ `button lock-button green ${ className }` }
             onClick={ () => lock() }
         >
+            <Icon icon='ion-locked' className='padding-right' />
             { text }
         </div>
     );

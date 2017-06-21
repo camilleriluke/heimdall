@@ -30,6 +30,7 @@ module.exports = {
 
     module: {
         rules: [
+            { test: /\.(ttf|otf|eot|svg|woff2?)(\?.+)?$/, loader: 'url-loader', options: { limit: 10000 } },
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
             {
