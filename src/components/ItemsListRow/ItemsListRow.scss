@@ -1,17 +1,18 @@
-$border: 1px solid #d8d8d8;
-$background: white;
-$color: black;
+$item-border: 1px solid #d8d8d8;
+$item-background-color: white;
+$item-link-color: #0078d4 !default;
+$item-color: black;
 
 .item-list-row {
     position: relative;
     float: left;
     width: 100%;
     overflow: hidden;
-    border-bottom: $border;
+    border-bottom: $item-border;
     padding: 15px;
     cursor: pointer;
-    background-color: $background;
-    color: $color;
+    background-color: $item-background-color;
+    color: $item-color;
     box-sizing: border-box;
     text-decoration: none;
 
@@ -23,6 +24,17 @@ $color: black;
 .item-list-row-name {
     font-size: 18px;
     text-transform: capitalize;
+}
+
+.item-list-row-link {
+    color: $item-link-color;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    display: inline-block;
+
+    &:hover {
+        color: darken($item-link-color, 20%);
+    }
 }
 
 .item-copied-message {
