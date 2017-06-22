@@ -5,9 +5,6 @@ export const types = {
 }
 
 export function push (route) {
-    console.log('------------------------------------');
-    console.log(route);
-    console.log('------------------------------------');
     return { type: types.PUSH, route };
 }
 
