@@ -18,6 +18,7 @@ function createWindow () {
     window.on('closed', onWindowClosed);
     loadHtml();
     openDevTools();
+    registerLinkHandler();
 }
 
 function onAllWindowsClosed () {
@@ -34,6 +35,18 @@ function onActivate () {
 
 function openDevTools () {
     window.webContents.openDevTools();
+}
+
+function registerLinkHandler () {
+    window.webContents.on('will-navigate', handleLink)
+    window.webContents.on('new-window', handleLink)
+}
+
+function handleLink (event, url) {
+    if(url != window.webContents.getURL()) {
+        event.preventDefault();
+        require('electron').shell.openExternal(url);
+    }
 }
 
 function loadHtml () {

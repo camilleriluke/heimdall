@@ -7,6 +7,7 @@ const crypto = require('../lib/crypto');
 const logger = require('../lib/logger')({});
 const { version } = require('../package.json');
 const config = require('../default.config');
+const validUrl = require('valid-url');
 
 const ENCODING = 'utf8';
 const getFileContents = _.partial(utils.getFileContents, fs, path);
@@ -98,4 +99,18 @@ export function uuid () {
         .substring(1);
 
     return `${ s4() }${ s4() }-${ s4() }-${ s4() }-${ s4() }`;
+}
+
+export function formatLink (link) {
+    const needsPrefix = !_.startsWith(link, 'http://') && !_.startsWith(link, 'https://');
+
+    if (needsPrefix && link) {
+        return `http://${ link }`;
+    }
+
+    return link;
+}
+
+export function isValidUrl (url) {
+    return validUrl.isWebUri(url);
 }
