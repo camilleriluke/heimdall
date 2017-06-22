@@ -7,6 +7,7 @@ import thunk from 'redux-thunk';
 import ReactDOM from 'react-dom';
 import reducers from './reducers';
 import { get as getFromPersistedStore } from '../lib/store';
+import config from '../default.config';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
 import Routes from './routes';
 import './styles/main.scss';
@@ -59,6 +60,7 @@ function getInitialState () {
         status: {
             locked: _.get(persistedStatus, 'locked', true),
             password: _.get(persistedStatus, 'password', null),
+            storeFile: _.get(persistedStatus, 'storeFile', config.defaultStore),
             doesStoreExist: true
         }
     };

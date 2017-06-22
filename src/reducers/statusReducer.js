@@ -1,6 +1,8 @@
 import { types } from '../actions/status';
+import config from '../../default.config';
 
 const defaultState = {
+    storeFile: config.defaultStore,
     locked: true,
     doesStoreExist: false,
     password: null

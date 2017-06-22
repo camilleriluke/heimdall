@@ -8,11 +8,13 @@ import Button from '../../components/Button';
 export default function Unlock ({
     errorMessage,
     onPasswordChange,
-    onSubmit
+    onSubmit,
+    storeFile
 }) {
     return (
         <CenteredPage>
             <Title text='Unlock' />
+            <span className='margin-bottom store-file-name'>{ storeFile }</span>
 
             <FormError
                 text={ errorMessage }
