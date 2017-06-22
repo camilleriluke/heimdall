@@ -4,17 +4,17 @@ import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
 import FormError from '../../components/FormError';
 import Button from '../../components/Button';
+import StoreFileSelector from '../../components/StoreFileSelector';
 
 export default function Unlock ({
     errorMessage,
     onPasswordChange,
-    onSubmit,
-    storeFile
+    onSubmit
 }) {
     return (
         <CenteredPage>
             <Title text='Unlock' />
-            <span className='margin-bottom store-file-name'>{ storeFile }</span>
+            <StoreFileSelector className='margin-bottom' />
 
             <FormError
                 text={ errorMessage }

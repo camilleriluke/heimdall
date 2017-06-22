@@ -32,6 +32,12 @@ export default function statusReducer (state = defaultState, action) {
             password: action.password
         };
 
+        case types.UPDATE_STORE_FILE:
+        return {
+            ...state,
+            storeFile: action.storeFile || state.storeFile
+        };
+
         default:
         return state;
     };

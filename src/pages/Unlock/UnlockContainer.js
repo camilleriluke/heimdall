@@ -24,7 +24,7 @@ class UnlockContainer extends React.Component {
         } else {
             this.setState({ errorMessage: null });
 
-            decryptStore({ password: this.state.password })
+            decryptStore({ file: this.props.storeFile, password: this.state.password })
                 .then(store => {
                     this.props.unlockStore(store.items, this.state.password);
                     this.props.redirect('/items')
@@ -41,7 +41,6 @@ class UnlockContainer extends React.Component {
             <Unlock
                 errorMessage={ this.state.errorMessage }
                 onSubmit={ this.onSubmit }
-                storeFile={ this.props.storeFile }
                 onPasswordChange={ ({ value }) => this.setState({ password: value }) }
             />
         );
