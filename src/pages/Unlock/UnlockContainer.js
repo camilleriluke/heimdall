@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { unlockStore, push } from '../../actions';
 import { decryptStore } from '../../utils';
 import Unlock from './Unlock';
+import './Unlock.scss';
 
 class UnlockContainer extends React.Component {
     constructor (props) {
@@ -23,7 +24,7 @@ class UnlockContainer extends React.Component {
         } else {
             this.setState({ errorMessage: null });
 
-            decryptStore({ password: this.state.password })
+            decryptStore({ file: this.props.storeFile, password: this.state.password })
                 .then(store => {
                     this.props.unlockStore(store.items, this.state.password);
                     this.props.redirect('/items')
@@ -47,7 +48,9 @@ class UnlockContainer extends React.Component {
 }
 
 const Connected = connect(
-    () => ({}),
+    state => ({
+        storeFile: state.status.storeFile
+    }),
     dispatch => ({
         redirect: (path) => dispatch(push(path)),
         unlockStore: (items, password) => dispatch(unlockStore(items, password))

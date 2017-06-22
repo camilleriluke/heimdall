@@ -5,9 +5,11 @@ export function persistState () {
     return (dispatch, getState) => {
         const state = getState();
         const password = _.get(state, 'status.password', null);
+        const storeFile = _.get(state, 'status.storeFile');
+        const locked = _.get(state, 'status.locked');
         const items = _.get(state, 'items', []);
 
-        persistedStore.set('status', { locked: false, password });
+        persistedStore.set('status', { locked, password, storeFile });
         persistedStore.set('items', items);
     };
 }

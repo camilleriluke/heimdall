@@ -4,6 +4,7 @@ import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
 import FormError from '../../components/FormError';
 import Button from '../../components/Button';
+import StoreFileSelector from '../../components/StoreFileSelector';
 
 export default function Unlock ({
     errorMessage,
@@ -13,6 +14,7 @@ export default function Unlock ({
     return (
         <CenteredPage>
             <Title text='Unlock' />
+            <StoreFileSelector className='margin-bottom' />
 
             <FormError
                 text={ errorMessage }
