@@ -5,11 +5,19 @@ import Redirect from '../Redirect';
 import _ from 'lodash';
 
 function ProtectedRoute ({ isAuthenticated, children, ...props }) {
-    if (!isAuthenticated) {
-        return <Redirect path="/unlock" />;
+    return (
+        <Route { ...props }>
+            <CheckAuth isAuthenticated={ isAuthenticated }>{ children }</CheckAuth>
+        </Route>
+    );
+}
+
+function CheckAuth ({ isAuthenticated, children }) {
+    if (isAuthenticated) {
+        return children;
     }
 
-    return <Route { ...props }>{ children }</Route>;
+    return <Redirect path="/unlock" />;
 }
 
 function mapStateToProps (state) {

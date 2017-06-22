@@ -33,7 +33,7 @@ export function createStore (password) {
 export function updateStoreFile () {
     return dispatch => {
         dispatch(lockStore());
-        remote.dialog.showOpenDialog({ properties: ['openFile'] }, storeFile => {
+        remote.dialog.showOpenDialog({ properties: ['openFile'] }, ([ storeFile ]) => {
             dispatch({ type: types.UPDATE_STORE_FILE, storeFile });
             dispatch(persistState());
         });
