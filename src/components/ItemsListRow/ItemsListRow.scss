@@ -40,7 +40,8 @@ $item-color: black;
 .item-copied-message {
     position: absolute;
     right: 132px;
-    top: 12px;
+    top: 50%;
+    margin-top: -12px;
     background: #54c77d;
     color: #ffffff;
     padding: 5px 10px;
