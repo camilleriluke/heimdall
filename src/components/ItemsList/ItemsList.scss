@@ -1,6 +1,8 @@
 @import "../../styles/variables";
 
 .items-list {
-    overflow: hidden;
-    margin-top: $header-height;
+    overflow: auto;
+    position: absolute;
+    top: $header-height;
+    bottom: 0px;
 }
