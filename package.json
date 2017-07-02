@@ -1,7 +1,12 @@
 {
   "name": "heimdall",
   "version": "1.0.0",
-  "description": "",
+  "description": "Foo bar huhuhu",
+  "author": {
+    "name": "Levente Balogh",
+    "email": "balogh.levente.hu@gmail.com",
+    "url": "leventebalogh.com"
+  },
   "main": "./src/main.js",
   "dependencies": {
     "babel-core": "^6.24.1",
@@ -12,7 +17,6 @@
     "babel-preset-react": "^6.24.1",
     "bluebird": "^3.5.0",
     "css-loader": "^0.28.1",
-    "electron": "^1.6.7",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.2",
     "history": "^4.6.1",
@@ -40,15 +44,18 @@
     "winston": "^2.3.1",
     "yargs": "^8.0.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "electron": "^1.6.7",
+    "electron-builder": "^19.11.1",
+    "electron-packager": "^8.7.1"
+  },
   "scripts": {
     "electron": "./node_modules/.bin/electron .",
-    "build": "webpack --config ./webpack.config.js",
+    "build": "electron-packager ./ Heimdall --platform=darwin --electron-version=1.6.11 --ignore=node_modules --out=/Users/leventebalogh --overwrite",
     "dev": "webpack --config ./webpack.config.js -w",
     "test": "jest",
     "tdd": "jest --watchAll"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC"
 }
