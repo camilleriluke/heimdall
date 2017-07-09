@@ -15,9 +15,5 @@ function loopItems (items) {
         return (<span>No items.</span>);
     }
 
-    return (
-        <div>
-            { _.map(items, (item, index) => (<ItemsListRow item={ item } key={ index } />)) }
-        </div>
-    );
+    return _.map(items, (item, index) => (<ItemsListRow item={ item } key={ index } />));
 }

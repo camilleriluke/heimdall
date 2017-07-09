@@ -7,8 +7,8 @@ $item-color: black;
 
 .item-list-row {
     position: relative;
-    float: left;
     width: 100%;
+    max-width: 800px;
     overflow: hidden;
     padding: 15px;
     cursor: pointer;
