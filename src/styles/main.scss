@@ -16,15 +16,21 @@ body {
     height: 100%;
 }
 
+.page-dark {
+    background-color: #3e3e3e;
+}
+
 .input {
-    padding: 13px 17px;
-    font-size: 2rem;
+    padding: 15px 20px;
+    font-size: 1.7rem;
     font-weight: 300;
     border: none;
     border-radius: 3px;
     box-sizing: border-box;
     max-width: 100%;
     outline: none;
+    width: 100%;
+    background-color: white;
 }
 
 .create-item-fixed {

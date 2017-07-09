@@ -12,7 +12,7 @@ export default function Unlock ({
     onSubmit
 }) {
     return (
-        <CenteredPage>
+        <CenteredPage className='page-dark'>
             <Title text='Unlock' />
             <StoreFileSelector className='margin-bottom' />
 
