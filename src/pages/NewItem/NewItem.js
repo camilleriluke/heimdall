@@ -7,7 +7,7 @@ import './NewItem.scss';
 export default function NewItem ({ onSubmit }) {
     return (
         <div className='page'>
-            <Header title='New Item' displayBackButton />
+            <Header displayBackButton />
             <ItemForm onSubmit={ onSubmit } />
         </div>
     );

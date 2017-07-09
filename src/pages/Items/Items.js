@@ -9,7 +9,7 @@ import './Items.scss';
 export default function Items ({ items }) {
     return (
         <div className='page'>
-            <Header title='Items'>
+            <Header>
                 <LockButton className='header-button' />
                 <Link className='create-item-fixed button-green' href='/create-item'>+</Link>
             </Header>

@@ -3,7 +3,7 @@ import GoBack from '../GoBack';
 import Icon from '../Icon';
 import './Header.scss';
 
-export default function Header ({ title, displayBackButton, children }) {
+export default function Header ({ title='Heimdall', displayBackButton, children }) {
     return (
         <div className='header'>
             { getBackButton(displayBackButton) }

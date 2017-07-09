@@ -7,7 +7,7 @@ import './Item.scss';
 export default function Item ({ item, onSubmit, deleteItem }) {
     return (
         <div className='page'>
-            <Header title={ item.name } displayBackButton>
+            <Header displayBackButton>
                 <Button
                     text='Delete'
                     className='header-button'
