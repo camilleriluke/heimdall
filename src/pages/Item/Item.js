@@ -12,7 +12,7 @@ export default function Item ({ item, onSubmit, deleteItem }) {
                     text='Delete'
                     className='header-button'
                     color='red'
-                    icon='ion-close-circled'
+                    icon='ion-close'
                     onClick={ () => deleteItem(item) }
                 />
             </Header>

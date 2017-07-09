@@ -1,6 +1,15 @@
 @import "../../styles/variables";
 
 .items-list {
-    overflow: hidden;
-    margin-top: $header-height;
+    overflow: auto;
+    position: absolute;
+    top: $header-height;
+    bottom: 0px;
+    padding: 50px 50px 120px 50px;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 }

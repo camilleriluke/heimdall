@@ -6,22 +6,23 @@
     left: 0px;
     width: 100%;
     height: $header-height;
-    background-color: #969696;
+    background-color: $color-primary-dark;
+    z-index: 1;
 }
 
 .header-title {
     width: 100%;
-    color: #5a5a5a;
+    color: $color-primary-light;
     text-align: center;
-    font-weight: bold;
+    font-weight: 300;
     line-height: 48px;
     font-size: 20px;
 }
 
 .header-buttons {
     position: absolute;
-    right: 10px;
-    top: 0px;
+    right: 0;
+    top: 0;
 }
 
 .header-go-back {
@@ -31,14 +32,25 @@
     left: 19px;
     color: white;
     cursor: pointer;
+    font-size: 19px;
+    font-weight: 300;
 }
 
 .header-button {
     width: auto;
-    font-size: 13px;
-    margin-top: 10px;
-    padding: 8px 13px 7px 13px;
-    background-color: #545454;
+    font-size: 14px;
+    margin-top: 0px;
+    padding: 0 20px;
+    background-color: lighten($color-primary-dark, 15%);
     color: white;
     text-transform: uppercase;
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 50px;
+    transition: all .2s;
+    border-radius: 0px;
+
+    &:hover {
+        background-color: lighten($color-primary-dark, 18%);
+    }
 }

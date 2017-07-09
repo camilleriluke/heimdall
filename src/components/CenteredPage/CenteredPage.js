@@ -1,9 +1,9 @@
 import React from 'react';
 import './CenteredPage.scss';
 
-export default function CenteredPage ({ children }) {
+export default function CenteredPage ({ children, className }) {
     return (
-        <div className='page'>
+        <div className={ `page ${ className }` }>
             <div className='container-centered'>
                 <div className='item-centered'>
                     { children }

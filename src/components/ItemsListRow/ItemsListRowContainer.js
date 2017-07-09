@@ -4,7 +4,7 @@ import { setActiveItem, push } from '../../actions';
 import CopyToClipboard from '../CopyToClipboard';
 import ItemsListRow from './ItemsListRow';
 
-const COPIED_MESSAGE_TIMEOUT = 1500;
+const COPIED_MESSAGE_TIMEOUT = 2000;
 
 class ItemsListRowContainer extends React.Component {
     constructor (props) {

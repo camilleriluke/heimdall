@@ -31,7 +31,7 @@ class UnlockContainer extends React.Component {
                 })
                 .catch(e => {
                     console.error(e);
-                    this.setState({ errorMessage: 'Wrong password' });
+                    this.setState({ errorMessage: 'Oups, wrong password...'  });
                 });
         }
     }

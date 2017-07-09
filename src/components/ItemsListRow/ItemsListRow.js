@@ -9,14 +9,21 @@ export default function ItemsListRow ({ onClick, onCopy, item, displayCopyText }
             <div className='item-list-row-name'>{ item.name }</div>
             { getLink(item.url) }
             { getCopyMessage(displayCopyText) }
-            <CopyToClipboard
-                className='item-copy-password'
-                text={ item.password }
-                onClick={ onCopy }
-            >
-                Copy Password
-            </CopyToClipboard>
+            { getCopyButton(item.password, onCopy) }
+            <span className='item-next ion-chevron-right'></span>
         </div>
+    );
+}
+
+function getCopyButton (password, onCopy) {
+    return (
+        <CopyToClipboard
+            className='item-copy-password'
+            text={ password }
+            onClick={ onCopy }
+        >
+            <span className='ion-ios-copy-outline'></span>
+        </CopyToClipboard>
     );
 }
 
@@ -34,9 +41,11 @@ function getLink (url) {
 }
 
 function getCopyMessage (display) {
-    if (display) {
-        return <div className='item-copied-message'>Copied.</div>;
-    }
+    const className = display ? 'is-visible' : '';
 
-    return null;
+    return (
+        <div className={ `item-copied-message ${ className }` }>
+            <span className='ion-checkmark'></span> Password copied
+        </div>
+    );
 }
