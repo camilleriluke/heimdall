@@ -8,13 +8,14 @@ $item-color: black;
     float: left;
     width: 100%;
     overflow: hidden;
-    border-bottom: $item-border;
+    // border-bottom: $item-border;
     padding: 15px;
     cursor: pointer;
     background-color: $item-background-color;
     color: $item-color;
     box-sizing: border-box;
     text-decoration: none;
+    margin-bottom: 8px;
 
     &:last-child {
         border-bottom: none;
