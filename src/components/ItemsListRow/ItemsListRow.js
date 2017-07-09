@@ -14,7 +14,7 @@ export default function ItemsListRow ({ onClick, onCopy, item, displayCopyText }
                 text={ item.password }
                 onClick={ onCopy }
             >
-                Copy Password
+                <span className='ion-ios-copy-outline'></span>
             </CopyToClipboard>
         </div>
     );
@@ -34,9 +34,11 @@ function getLink (url) {
 }
 
 function getCopyMessage (display) {
-    if (display) {
-        return <div className='item-copied-message'>Copied.</div>;
-    }
+    const className = display ? 'is-visible' : '';
 
-    return null;
+    return (
+        <div className={ `item-copied-message ${ className }` }>
+            <span className='ion-checkmark'></span> Password copied
+        </div>
+    );
 }

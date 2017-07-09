@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 $item-border: 1px solid #d8d8d8;
 $item-background-color: white;
 $item-link-color: #0078d4 !default;
@@ -8,7 +10,6 @@ $item-color: black;
     float: left;
     width: 100%;
     overflow: hidden;
-    // border-bottom: $item-border;
     padding: 15px;
     cursor: pointer;
     background-color: $item-background-color;
@@ -40,31 +41,47 @@ $item-color: black;
 
 .item-copied-message {
     position: absolute;
-    right: 132px;
+    right: 75px;
     top: 50%;
-    margin-top: -12px;
-    background: #54c77d;
-    color: #ffffff;
+    color: #54c77d;
     padding: 5px 10px;
-    font-size: 12px;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: right;
+    opacity: 0;
+    transform: translate(0, -50%);
+    transition: opacity .3s;
+
+    & > span {
+        margin-right: 5px;
+    }
+
+    &.is-visible {
+        opacity: 1;
+    }
 }
 
 .item-copy-password {
     position: absolute;
-    right: 10px;
+    right: 15px;
     top: 50%;
-    color: #8c8c8c;
-    background-color: #ececec;
-    border: 1px solid #bdbdbd;
-    padding: 6px 7px;
-    border-radius: 3px;
-    text-transform: uppercase;
-    font-size: 11px;
+    color: lighten($color-primary-dark, 20%);
+    border: 1px solid lighten($color-primary-dark, 60%);
+    border-radius: 99px;
+    font-size: 27px;
     cursor: pointer;
-    margin-top: -13px;
+    display: block;
+    box-sizing: border-box;
+    width: 40px;
+    height: 40px;
+    line-height: 39px;
+    text-align: center;
+    transform: translate(0, -50%);
+    transition: all .2s;
 
     &:hover {
-        background-color: #e0e0e0;
+        color: $color-primary-dark;
+        border-color: $color-primary-dark;
     }
 
     &:active {
