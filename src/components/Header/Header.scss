@@ -46,6 +46,7 @@
     height: 50px;
     line-height: 50px;
     transition: all .2s;
+    border-radius: 0px;
 
     &:hover {
         background-color: lighten($color-primary-dark, 18%);
