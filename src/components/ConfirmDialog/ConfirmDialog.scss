@@ -38,7 +38,9 @@ $confirm-dialog-spacing: 20px !default;
 
 .confirm-dialog-text {
     color: $confirm-dialog-color;
-    font-size: 19px;
+    font-size: 23px;
+    font-weight: 300;
+    text-align: center;
 }
 
 .confirm-dialog-actions {

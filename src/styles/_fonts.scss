@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Monoton';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Monoton'), local('Monoton-Regular'),
+       url('./fonts/monoton/monoton-regular.woff2') format('woff2'),
+       url('./fonts/monoton/monoton-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Muli ExtraLight'), local('Muli-ExtraLight'),
+       url('./fonts/muli/muli-200.woff2') format('woff2'),
+       url('./fonts/muli/muli-200.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Muli Light'), local('Muli-Light'),
+       url('./fonts/muli/muli-300.woff2') format('woff2'),
+       url('./fonts/muli/muli-300.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Muli';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Muli Regular'), local('Muli-Regular'),
+       url('./fonts/muli/muli-regular.woff2') format('woff2'),
+       url('./fonts/muli/muli-regular.woff') format('woff');
+}
