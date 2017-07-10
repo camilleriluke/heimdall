@@ -31,12 +31,19 @@ class ItemsListRowContainer extends React.Component {
         return (
             <ItemsListRow
                 item={ this.props.item }
+                keyword={ this.props.keyword }
                 onClick={ () => this.onClick() }
                 onCopy={ () => this.onCopy() }
                 displayCopyText={ this.state.displayCopyText }
             />
         );
     }
+}
+
+function mapStateToProps (state) {
+    return {
+        keyword: state.search.keyword
+    };
 }
 
 function mapDispatchToProps (dispatch) {
@@ -47,7 +54,7 @@ function mapDispatchToProps (dispatch) {
 }
 
 const ConnectedItemsListRowContainer = connect(
-    () => ({}),
+    mapStateToProps,
     mapDispatchToProps
 )(ItemsListRowContainer);
 
