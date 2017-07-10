@@ -1,13 +1,7 @@
 import { remote } from 'electron';
 import { persistState, clearPersistedState } from './persist';
 import config from '../../default.config';
-
-export const types = {
-    LOCK: 'LOCK',
-    UNLOCK: 'UNLOCK',
-    CREATE_STORE: 'CREATE_STORE',
-    UPDATE_STORE_FILE: 'UPDATE_STORE_FILE'
-}
+import types from './actionTypes';
 
 export function lockStore () {
     return (dispatch) => {

@@ -8,7 +8,7 @@ function ItemsContainer ({ items }) {
 
 const Connected = connect(
     state => ({
-        items: state.items
+        items: state.items.filtered
     })
 )(ItemsContainer);
 

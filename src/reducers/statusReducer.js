@@ -1,4 +1,4 @@
-import { types } from '../actions/status';
+import { types } from '../actions';
 import config from '../../default.config';
 
 const defaultState = {

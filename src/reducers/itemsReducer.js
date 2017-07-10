@@ -1,16 +1,27 @@
 import _ from 'lodash';
-import { types } from '../actions/items';
-import { types as statusTypes } from '../actions/status';
+import { types } from '../actions';
 import { uuid } from '../utils';
 
-export default function statusReducer (state = [], action) {
+const defaultState = {
+    raw: [],
+    filtered: []
+};
+
+export default function statusReducer (state = defaultState, action) {
+    let items = [];
+
     switch (action.type) {
         case types.CREATE_ITEM:
             action.item.id = uuid();
-            return [ ...state, action.item ];
+            items = [ ...state.raw, action.item ];
+
+            return {
+                raw: items,
+                filtered: items
+            };
 
         case types.UPDATE_ITEM:
-            return state.map(item => {
+            items = state.raw.map(item => {
                 if (item.id === action.item.id) {
                     return _.extend({}, item, action.item);
                 }
@@ -18,11 +29,30 @@ export default function statusReducer (state = [], action) {
                 return item;
             });
 
-        case types.DELETE_ITEM:
-            return state.filter(item => item.id !== action.item.id);
+            return {
+                raw: items,
+                filtered: items
+            };
 
-        case statusTypes.UNLOCK:
-            return action.items;
+        case types.DELETE_ITEM:
+            items = state.raw.filter(item => item.id !== action.item.id);
+
+            return {
+                raw: items,
+                filtered: items
+            };
+
+        case types.UNLOCK:
+            return {
+                raw: action.items,
+                filtered: action.items
+            };
+
+        case types.SEARCH:
+            return state;
+
+        case types.CLEAR_SEARCH:
+            return state;
 
         default:
             return state;

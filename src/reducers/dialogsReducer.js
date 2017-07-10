@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { types } from '../actions/dialogs';
+import { types } from '../actions';
 
 const defaultState = [];
 
