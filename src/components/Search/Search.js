@@ -27,6 +27,7 @@ export default class Search extends React.Component {
     render () {
         const { className } = this.props;
         const { keyword } = this.state;
+        const clearClassName = keyword ? 'is-visible' : '';
 
         return (
             <div className={ `search ${ className }` }>
@@ -36,6 +37,10 @@ export default class Search extends React.Component {
                     placeholder='Search...'
                     value={ keyword }
                     onChange={ this.onChange }
+                />
+                <span
+                    className={ `search-clear ion-close-circled ${ clearClassName }` }
+                    onClick={ this.clear }
                 />
             </div>
         );
