@@ -1,10 +1,5 @@
 import _ from 'lodash';
-
-export const types = {
-    DIALOG_OPEN: 'DIALOG_OPEN',
-    DIALOG_OK: 'DIALOG_CONFIRM',
-    DIALOG_CANCEL: 'DIALOG_CANCEL'
-};
+import types from './actionTypes';
 
 export function confirm (text, postAction) {
     const dialog = {

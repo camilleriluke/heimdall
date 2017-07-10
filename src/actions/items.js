@@ -1,14 +1,7 @@
 import _ from 'lodash';
 import { push } from './router';
 import { persistState, clearPersistedState } from './persist';
-
-export const types = {
-    CREATE_ITEM: 'CREATE_ITEM',
-    UPDATE_ITEM: 'UPDATE_ITEM',
-    DELETE_ITEM: 'DELETE_ITEM',
-    SET_ACTIVE_ITEM: 'SET_ACTIVE_ITEM',
-    UNSET_ACTIVE_ITEM: 'UNSET_ACTIVE_ITEM'
-}
+import types from './actionTypes';
 
 const DEFAULT_ITEM = {
     name: 'FooBar',

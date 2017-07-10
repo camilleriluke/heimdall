@@ -1,4 +1,4 @@
-import { types } from '../actions/router';
+import { types } from '../actions';
 
 const defaultState = {
     activeRoute: '/',

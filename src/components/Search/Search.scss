@@ -1,0 +1,32 @@
+.search {
+    position: relative;
+}
+
+.search-input {
+    border: none;
+    height: 50px;
+    padding: 0 20px;
+    font-size: 20px;
+    font-weight: 300;
+    outline: none;
+}
+
+.search-clear {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    color: #bababa;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    transform: translate(0, -50%);
+    transition: color .2s;
+
+    &.is-visible {
+        display: block;
+    }
+
+    &:hover {
+        color: darken(#bababa, 5%);
+    }
+}

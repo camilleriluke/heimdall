@@ -12,7 +12,7 @@ export default function ItemsList ({ items }) {
 
 function loopItems (items) {
     if (_.isEmpty(items)) {
-        return (<span>No items.</span>);
+        return <span className='items-empty-message'>No items found.</span>;
     }
 
     return _.map(items, (item, index) => (<ItemsListRow item={ item } key={ index } />));

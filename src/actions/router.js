@@ -1,8 +1,4 @@
-export const types = {
-    PUSH: 'PUSH',
-    REPLACE: 'REPLACE',
-    GO_BACK: 'GO_BACK'
-}
+import types from './actionTypes';
 
 export function push (route) {
     return { type: types.PUSH, route };

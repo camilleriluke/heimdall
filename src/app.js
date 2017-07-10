@@ -30,7 +30,7 @@ ReactDOM.render(
 function saveAndEncryptOnStoreChange (store) {
     store.subscribe(() => {
         const state = store.getState();
-        const items = state.items;
+        const items = state.items.raw;
         const locked = state.status.locked;
         const password = state.status.password;
 
@@ -46,7 +46,10 @@ function getInitialState () {
 
     if (!doesStoreExist()) {
         return {
-            items: [],
+            items: {
+                raw: [],
+                filtered: []
+            },
             status: {
                 locked: true,
                 password: null,
@@ -56,7 +59,10 @@ function getInitialState () {
     }
 
     return {
-        items: persistedItems || [],
+        items: {
+            raw: persistedItems || [],
+            filtered: persistedItems || [],
+        },
         status: {
             locked: _.get(persistedStatus, 'locked', true),
             password: _.get(persistedStatus, 'password', null),
