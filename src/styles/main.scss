@@ -34,6 +34,25 @@ body {
     background-color: white;
 }
 
+.input-icon {
+    position: absolute;
+    top: 50%;
+    color: #8c8c8c;
+    border-radius: 99px;
+    font-size: 30px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    transform: translate(0, -50%);
+    transition: color .2s;
+
+    &:hover {
+        color: #626161;
+    }
+}
+
 .create-item-fixed {
     position: fixed;
     bottom: 40px;

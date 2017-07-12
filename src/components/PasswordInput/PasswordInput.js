@@ -50,6 +50,8 @@ export default class PasswordInput extends React.Component {
     }
 
     render () {
+        const toggleVisibilityClass = this.state.toggleText === 'show' ? 'ion-eye' : 'ion-eye-disabled';
+
         return (
             <div className={ `password-input-container ${ this.props.className }` }>
                 <input
@@ -62,11 +64,13 @@ export default class PasswordInput extends React.Component {
                     type={ this.state.type }
                 />
                 <span
-                    className='password-input-toggle'
+                    className={ `password-input-toggle input-icon ${ toggleVisibilityClass }` }
                     onClick={ this.toggleType.bind(this) }
-                >
-                    { this.state.toggleText }
-                </span>
+                />
+                <span
+                    className='password-copy input-icon ion-ios-copy'
+                    onClick={ () => {} }
+                />
             </div>
         );
     }
