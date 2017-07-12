@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import CopyToClipboard from '../CopyToClipboard';
 import './PasswordInput.scss';
 
 const DEFAULT_PLACEHOLDER = 'Password...';
@@ -67,9 +68,9 @@ export default class PasswordInput extends React.Component {
                     className={ `password-input-toggle input-icon ${ toggleVisibilityClass }` }
                     onClick={ this.toggleType.bind(this) }
                 />
-                <span
+                <CopyToClipboard
                     className='password-copy input-icon ion-ios-copy'
-                    onClick={ () => {} }
+                    text={ this.state.value }
                 />
             </div>
         );
