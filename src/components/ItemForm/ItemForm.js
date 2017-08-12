@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
+import LinkInput from '../LinkInput';
 import Button from '../Button';
 import './ItemForm.scss';
 
@@ -48,7 +49,7 @@ export default class ItemForm extends React.Component {
                         value={ this.state.item.username }
                         onChange={ this.handleChange }
                     />
-                    <TextInput
+                    <LinkInput
                         name='url'
                         className='margin-top'
                         placeholder='URL...'
