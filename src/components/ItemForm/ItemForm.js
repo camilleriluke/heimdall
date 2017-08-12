@@ -62,6 +62,7 @@ export default class ItemForm extends React.Component {
                         className='margin-top'
                         placeholder='Password'
                         canGenerate={ true }
+                        canCopy={ true }
                         value={ this.state.item.password }
                         onChange={ this.handleChange }
                     />

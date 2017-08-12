@@ -9,20 +9,16 @@ const COPY_MESSAGE_TIMEOUT = 1000;
 export default class PasswordInput extends React.Component {
     constructor (props) {
         super(props);
-        this.state = {
-            type: 'password',
-            copiedMessageVisible: false,
-            value: this.props.value || ''
-        };
-        this.focus = this.focus.bind(this);
+
         this.generatePassword = this.generatePassword.bind(this);
         this.toggleType = this.toggleType.bind(this);
         this.onChange = this.onChange.bind(this);
         this.onCopy = this.onCopy.bind(this);
-    }
-
-    focus () {
-        this.input.focus();
+        this.state = {
+            type: 'password',
+            isCopyMessageVisible: false,
+            value: this.props.value || ''
+        };
     }
 
     generatePassword () {
@@ -48,33 +44,33 @@ export default class PasswordInput extends React.Component {
     }
 
     onCopy () {
-        this.setState({ copiedMessageVisible: true });
+        this.setState({ isCopyMessageVisible: true });
 
         setTimeout(
-            () => this.setState({ copiedMessageVisible: false }),
+            () => this.setState({ isCopyMessageVisible: false }),
             COPY_MESSAGE_TIMEOUT
         );
     }
 
     toggleType () {
-        const type = this.getNextType();
+        const { type } = this.state;
+        const newType = type === 'password' ? 'text' : 'password';
 
-        this.setState({ type });
-    }
-
-    getNextType () {
-        return this.state.type === 'password' ? 'text' : 'password';
+        this.setState({ type: newType });
     }
 
     render () {
-        const { value, type, copiedMessageVisible } = this.state;
-        const { name, placeholder, canGenerate, canCopy } = this.props;
-        const toggleVisibilityClass = type === 'text' ? 'ion-eye' : 'ion-eye-disabled';
-        const messageClass = copiedMessageVisible ? '' : 'password-copy-message-hide';
-        const generateClass = canGenerate && !value ? '' : 'password-generate-hide';
+        const { value, type, isCopyMessageVisible } = this.state;
+        const {
+            name,
+            placeholder,
+            className = '',
+            canGenerate = false,
+            canCopy = false
+        } = this.props;
 
         return (
-            <div className={ `password-input-container ${ this.props.className }` }>
+            <div className={ `password-input-container ${ getClassName(className, canGenerate, canCopy) }` }>
                 <input
                     ref={ input => { this.input = input; } }
                     name={ name || '' }
@@ -84,24 +80,82 @@ export default class PasswordInput extends React.Component {
                     type={ type }
                     onChange={ this.onChange }
                 />
-                <span
-                    className={ `password-input-toggle input-icon ${ toggleVisibilityClass }` }
+                <PasswordToggleButton
+                    inputType={ type }
                     onClick={ this.toggleType }
                 />
-                <CopyToClipboard
-                    className='password-copy input-icon ion-ios-copy'
-                    text={ value }
-                    onClick={ this.onCopy }
+                <PasswordCopyButton
+                    isVisible={ canCopy }
+                    value={ value }
+                    onCopy={ this.onCopy }
                 />
-                <span className={ `password-copy-message ${ messageClass }` }>
-                    Copied
-                </span>
-                <span className={ `password-generate ${ generateClass }` } onClick={ this.generatePassword }>
-                    <i className='ion-wand'></i> Generate Password
-                </span>
+                <PasswordCopyMessage
+                    isVisible={ isCopyMessageVisible }
+                />
+                <PasswordGenerateButton
+                    isVisible={ canGenerate && _.isEmpty(value) }
+                    onClick={ this.generatePassword }
+                />
             </div>
         );
     }
+}
+
+function PasswordCopyMessage ({ isVisible }) {
+    const className = isVisible ? '' : 'password-copy-message-hide';
+
+    return (
+        <span className={ `password-copy-message ${ className }` }>
+            Copied
+        </span>
+    );
+}
+
+function PasswordCopyButton ({ isVisible, value, onCopy }) {
+    if (isVisible) {
+        return (
+            <CopyToClipboard
+                className='input-icon password-copy ion-ios-copy'
+                text={ value }
+                onClick={ onCopy }
+            />
+        );
+    }
+
+    return null;
+}
+
+function PasswordToggleButton ({ inputType, onClick }) {
+    const className = inputType === 'text' ? 'ion-eye' : 'ion-eye-disabled';
+
+    return (
+        <span
+            className={ `input-icon password-input-toggle ${ className }` }
+            onClick={ onClick }
+        />
+    )
+}
+
+function PasswordGenerateButton ({ isVisible, onClick }) {
+    const className = isVisible ? '' : 'password-generate-hide';
+
+    return (
+        <span className={ `password-generate ${ className }` } onClick={ onClick }>
+            <i className='ion-wand'></i> Generate Password
+        </span>
+    )
+}
+
+function getClassName (className, canGenerate, canCopy) {
+    if (canGenerate) {
+        className = `${ className } can-generate`;
+    }
+
+    if (canCopy) {
+        className = `${ className } can-copy`;
+    }
+
+    return className;
 }
 
 function getRandomPassword (length = 15) {
