@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
+import LinkInput from '../LinkInput';
 import Button from '../Button';
 import './ItemForm.scss';
 
@@ -17,9 +18,10 @@ export default class ItemForm extends React.Component {
     }
 
     handleChange ({ name, value }) {
-        const item = this.state.item;
+        const { item } = this.state;
 
         item[name] = value;
+
         this.setState({ item });
     }
 
@@ -48,7 +50,7 @@ export default class ItemForm extends React.Component {
                         value={ this.state.item.username }
                         onChange={ this.handleChange }
                     />
-                    <TextInput
+                    <LinkInput
                         name='url'
                         className='margin-top'
                         placeholder='URL...'
@@ -59,6 +61,8 @@ export default class ItemForm extends React.Component {
                         name='password'
                         className='margin-top'
                         placeholder='Password'
+                        canGenerate={ true }
+                        canCopy={ true }
                         value={ this.state.item.password }
                         onChange={ this.handleChange }
                     />
