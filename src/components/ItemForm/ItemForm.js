@@ -18,9 +18,10 @@ export default class ItemForm extends React.Component {
     }
 
     handleChange ({ name, value }) {
-        const item = this.state.item;
+        const { item } = this.state;
 
         item[name] = value;
+
         this.setState({ item });
     }
 
@@ -60,6 +61,7 @@ export default class ItemForm extends React.Component {
                         name='password'
                         className='margin-top'
                         placeholder='Password'
+                        canGenerate={ true }
                         value={ this.state.item.password }
                         onChange={ this.handleChange }
                     />
