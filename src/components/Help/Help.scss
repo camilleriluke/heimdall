@@ -1,0 +1,40 @@
+.help {
+    padding: 20px;
+
+    h1 {
+        padding-top: 30px;
+        font-size: 1.3rem;
+        font-weight: 600;
+        padding-bottom: 15px;
+    }
+
+    p {
+        padding-top: 30px;
+        font-size: 1.3rem;
+        font-weight: 300;
+
+        &:first-child {
+            padding-top: 0;
+        }
+    }
+}
+
+.hotkeys {
+    width: 100%;
+    max-width: 400px;
+}
+
+.hotkey {
+    height: 25px;
+}
+
+.hotkey-key {
+    padding-right: 15px;
+    font-family: Monospace;
+    font-weight: bold;
+    color: #606060;
+}
+
+.hotkey-description {
+    color: #929292;
+}

@@ -2,18 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoBack from '../GoBack';
 import Icon from '../Icon';
+import Help from '../Help'
 import { dialog } from '../../actions';
 import './Header.scss';
 
 export function Header ({ title='Heimdall', displayBackButton, openHelp, children }) {
     return (
         <div className='header'>
-            <span className='header-info ion-information-circled' onClick={ openHelp }></span>
+            <InfoButton isVisible={ !displayBackButton } openHelp={ openHelp } />
             <BackButton isVisible={ displayBackButton } />
             <div className='header-title'>{ title }</div>
             <div className='header-buttons'>{ children }</div>
         </div>
     );
+}
+
+function InfoButton ({ isVisible, openHelp }) {
+    if (isVisible) {
+        return <span className='header-info ion-information-circled' onClick={ openHelp }></span>;
+    }
+
+    return null;
 }
 
 function BackButton ({ isVisible }) {
@@ -27,12 +36,6 @@ function BackButton ({ isVisible }) {
     }
 
     return null;
-}
-
-function Help () {
-    return (
-        <span>Lorem ipsum dolor sit amet.</span>
-    );
 }
 
 const Connected = connect(
