@@ -56,3 +56,12 @@
         background-color: lighten($color-primary-dark, 18%);
     }
 }
+
+.header-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 1.8rem;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}

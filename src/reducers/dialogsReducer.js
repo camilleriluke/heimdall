@@ -14,6 +14,9 @@ export default function dialogsReducer (state = defaultState, action) {
         case types.DIALOG_CANCEL:
         return _.dropRight(state);
 
+        case types.DIALOG_CLOSE:
+        return _.dropRight(state);
+
         default:
         return state;
     };
