@@ -2,20 +2,47 @@ import React from 'react';
 import _ from 'lodash';
 import './Dialog.scss';
 
-export default function Dialog ({ dialogs, onClose }) {
-    if (_.isEmpty(dialogs)) {
-        return null;
+export default class Dialog extends React.Component {
+    constructor (props) {
+        super(props);
+
+        this.closeAnimationTimeout = 300;
+        this.onClose = this.onClose.bind(this);
+        this.state = {
+            animationClass: ''
+        };
     }
 
-    const { content } = _.last(dialogs);
-    console.log('------------------------------------');
-    console.log(content);
-    console.log('------------------------------------');
-    return (
-        <div className='dialog'>
-            <div className='dialog-overlay' onClick={ onClose }></div>
-            <div className='dialog-close' onClick={ onClose }>&times;</div>
-            <div className='dialog-content'>{ content }</div>
-        </div>
-    );
+    onClose () {
+        this.setState({ animationClass: 'dialog-animation-close' })
+
+        setTimeout(
+            () => {
+                this.setState({ animationClass: '' });
+                this.props.onClose();
+            },
+            this.closeAnimationTimeout
+        );
+    }
+
+    render () {
+        const dialogs = this.props.dialogs || [];
+        const dialog = _.last(dialogs) || {};
+        const { content } = dialog;
+        const { animationClass } = this.state;
+
+        if (_.isEmpty(dialogs)) {
+            return null;
+        }
+
+        return (
+            <div className={ `dialog ${ animationClass }` }>
+                <div className='dialog-overlay' onClick={ this.onClose }></div>
+                <div className='dialog-content'>
+                    <div className='dialog-close' onClick={ this.onClose }>&times;</div>
+                    { content }
+                </div>
+            </div>
+        );
+    }
 }

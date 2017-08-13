@@ -5,6 +5,7 @@ $dialog-color: #5f5f5f !default;
 $dialog-cancel-color: #a5a5a5 !default;
 $dialog-color: #38b138 !default;
 $dialog-spacing: 20px !default;
+$dialog-animation-timeout: .3s;
 
 .dialog {
     position: fixed;
@@ -22,6 +23,8 @@ $dialog-spacing: 20px !default;
     width: 100%;
     height: 100%;
     background-color: $dialog-overlay-color;
+    opacity: 1;
+    transition: opacity $dialog-animation-timeout;
 }
 
 .dialog-content {
@@ -35,6 +38,8 @@ $dialog-spacing: 20px !default;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: $dialog-spacing;
+    opacity: 1;
+    transition: all $dialog-animation-timeout;
 }
 
 .dialog-text {
@@ -57,6 +62,22 @@ $dialog-spacing: 20px !default;
     display: inline-block;
 }
 
+.dialog-close {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    font-weight: normal;
+    font-size: 1.8rem;
+    line-height: 1.3rem;
+    cursor: pointer;
+    padding: 5px;
+    color: #848484;
+
+    &:hover {
+        color: black;
+    }
+}
+
 .dialog-cancel {
     background-color: $dialog-cancel-color;
     color: white;
@@ -66,4 +87,13 @@ $dialog-spacing: 20px !default;
     margin-left: $dialog-spacing;
     background-color: $dialog-color;
     color: white;
+}
+
+.dialog-animation-close .dialog-content {
+    opacity: 0;
+    transform: translate(-50%, -53%);
+}
+
+.dialog-animation-close .dialog-overlay {
+    opacity: 0;
 }
