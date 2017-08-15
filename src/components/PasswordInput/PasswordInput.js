@@ -68,9 +68,10 @@ export default class PasswordInput extends React.Component {
             canGenerate = false,
             canCopy = false
         } = this.props;
+        const isGenerateVisible = canGenerate && _.isEmpty(value);
 
         return (
-            <div className={ `password-input-container ${ getClassName(className, canGenerate, canCopy) }` }>
+            <div className={ `password-input-container ${ getClassName(className, isGenerateVisible, canCopy) }` }>
                 <input
                     ref={ input => { this.input = input; } }
                     name={ name || '' }
@@ -93,7 +94,7 @@ export default class PasswordInput extends React.Component {
                     isVisible={ isCopyMessageVisible }
                 />
                 <PasswordGenerateButton
-                    isVisible={ canGenerate && _.isEmpty(value) }
+                    isVisible={ isGenerateVisible }
                     onClick={ this.generatePassword }
                 />
             </div>
@@ -146,8 +147,8 @@ function PasswordGenerateButton ({ isVisible, onClick }) {
     )
 }
 
-function getClassName (className, canGenerate, canCopy) {
-    if (canGenerate) {
+function getClassName (className, isGenerateVisble, canCopy) {
+    if (isGenerateVisble) {
         className = `${ className } can-generate`;
     }
 

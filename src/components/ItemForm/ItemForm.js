@@ -3,6 +3,7 @@ import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 import LinkInput from '../LinkInput';
+import TextArea from '../TextArea';
 import Button from '../Button';
 import './ItemForm.scss';
 
@@ -68,6 +69,13 @@ export default class ItemForm extends React.Component {
                         canGenerate={ true }
                         canCopy={ !isNew }
                         value={ item.password }
+                        onChange={ this.handleChange }
+                    />
+                    <TextArea
+                        name='description'
+                        className='margin-top'
+                        placeholder='Notes...'
+                        value={ item.description }
                         onChange={ this.handleChange }
                     />
                     <Button
