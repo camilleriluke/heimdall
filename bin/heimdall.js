@@ -1,12 +1,11 @@
 #! /usr/bin/env node
 
-
 const fs = require('fs');
 const path = require('path');
 const yargs = require('yargs');
 const _ = require('lodash');
-const config = require('../config.json');
-const logger = require('../lib/logger');
+const config = require('../default.config');
+const logger = require('../lib/logger')({});
 const utils = require('../lib/utils');
 const crypto = require('../lib/crypto');
 

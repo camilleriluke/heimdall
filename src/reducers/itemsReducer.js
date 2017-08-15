@@ -49,15 +49,20 @@ export default function statusReducer (state = defaultState, action) {
             };
 
         case types.SEARCH:
+        console.log('1')
             return {
                 ...state,
                 filtered: state.raw.filter(item => {
                     const regex = new RegExp(action.keyword, 'igm');
+                    const { name } = item;
 
-                    return item.name.match(regex);
+                    if (_.isString(name)) {
+                        return name.match(regex);
+                    }
+
+                    return false;
                 })
             };
-            return state;
 
         case types.CLEAR_SEARCH:
             return {

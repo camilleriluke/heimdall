@@ -8,7 +8,11 @@ export default function NewItem ({ onSubmit }) {
     return (
         <div className='page'>
             <Header displayBackButton />
-            <ItemForm onSubmit={ onSubmit } />
+            <ItemForm
+                title='Create New'
+                isNew={ true }
+                onSubmit={ onSubmit }
+            />
         </div>
     );
 }

@@ -1,20 +1,32 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import GoBack from '../GoBack';
 import Icon from '../Icon';
+import Help from '../Help'
+import { dialog } from '../../actions';
 import './Header.scss';
 
-export default function Header ({ title='Heimdall', displayBackButton, children }) {
+export function Header ({ title='Heimdall', displayBackButton, openHelp, children }) {
     return (
         <div className='header'>
-            { getBackButton(displayBackButton) }
+            <InfoButton isVisible={ !displayBackButton } openHelp={ openHelp } />
+            <BackButton isVisible={ displayBackButton } />
             <div className='header-title'>{ title }</div>
             <div className='header-buttons'>{ children }</div>
         </div>
     );
 }
 
-function getBackButton (displayBackButton) {
-    if (displayBackButton) {
+function InfoButton ({ isVisible, openHelp }) {
+    if (isVisible) {
+        return <span className='header-info ion-information-circled' onClick={ openHelp }></span>;
+    }
+
+    return null;
+}
+
+function BackButton ({ isVisible }) {
+    if (isVisible) {
         return (
             <GoBack className='header-go-back'>
                 <Icon icon='ion-ios-arrow-back' className='padding-right' />
@@ -25,3 +37,12 @@ function getBackButton (displayBackButton) {
 
     return null;
 }
+
+const Connected = connect(
+    () => ({}),
+    dispatch => ({
+        openHelp: () => dispatch(dialog(<Help />))
+    })
+)(Header);
+
+export default Connected;
