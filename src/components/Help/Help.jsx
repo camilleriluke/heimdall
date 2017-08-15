@@ -22,7 +22,9 @@ export default function Help () {
 function Hotkeys () {
     return (
         <table className='hotkeys'>
-            { hotkeys.map(hotkey => <Hotkey hotkey={ hotkey } />) }
+            <tbody>
+            { hotkeys.map((hotkey, i) => <Hotkey key={ `hotkey-${ i }` } hotkey={ hotkey } />) }
+            </tbody>
         </table>
     );
 }

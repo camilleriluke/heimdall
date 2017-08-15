@@ -34,27 +34,31 @@ export default class ItemForm extends React.Component {
     }
 
     render () {
+        const { item } = this.state;
+        const { title, isNew } = this.props;
+
         return (
             <div className='item-form'>
+                <ItemFormTitle title={ title } />
                 <form onSubmit={ this.onSubmit }>
                     <TextInput
                         name='name'
                         placeholder='Name...'
-                        value={ this.state.item.name }
+                        value={ item.name }
                         onChange={ this.handleChange }
                     />
                     <TextInput
                         name='username'
                         className='margin-top'
                         placeholder='Username...'
-                        value={ this.state.item.username }
+                        value={ item.username }
                         onChange={ this.handleChange }
                     />
                     <LinkInput
                         name='url'
                         className='margin-top'
                         placeholder='URL...'
-                        value={ this.state.item.url }
+                        value={ item.url }
                         onChange={ this.handleChange }
                     />
                     <PasswordInput
@@ -62,8 +66,8 @@ export default class ItemForm extends React.Component {
                         className='margin-top'
                         placeholder='Password'
                         canGenerate={ true }
-                        canCopy={ true }
-                        value={ this.state.item.password }
+                        canCopy={ !isNew }
+                        value={ item.password }
                         onChange={ this.handleChange }
                     />
                     <Button
@@ -75,4 +79,12 @@ export default class ItemForm extends React.Component {
             </div>
         );
     }
+}
+
+function ItemFormTitle ({ title }) {
+    if (title) {
+        return <h1 className='item-form-title'>{ title }</h1>;
+    }
+
+    return null;
 }

@@ -10,6 +10,7 @@ import { get as getFromPersistedStore } from '../lib/store';
 import config from '../default.config';
 import { doesStoreExist, readRawStore, encryptStore } from './utils';
 import Routes from './routes';
+import { registerHotkeys } from './hotkeys';
 import './styles/main.scss';
 
 const store = createStore(
@@ -19,6 +20,7 @@ const store = createStore(
 );
 
 saveAndEncryptOnStoreChange(store);
+registerHotkeys(store);
 
 ReactDOM.render(
     <Provider store={ store }>

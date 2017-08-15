@@ -41,7 +41,7 @@ function BackButton ({ isVisible }) {
 const Connected = connect(
     () => ({}),
     dispatch => ({
-        openHelp: () => dispatch(dialog((<Help />)))
+        openHelp: () => dispatch(dialog(<Help />))
     })
 )(Header);
 
