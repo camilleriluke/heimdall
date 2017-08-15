@@ -49,7 +49,6 @@ export default function statusReducer (state = defaultState, action) {
             };
 
         case types.SEARCH:
-        console.log('1')
             return {
                 ...state,
                 filtered: state.raw.filter(item => {
