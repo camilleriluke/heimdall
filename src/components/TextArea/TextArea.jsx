@@ -4,13 +4,20 @@ import './TextArea.scss';
 
 const noop = () => {};
 
-export default function TextArea ({ value, onChange = noop, className, placeholder }) {
+export default function TextArea ({
+    name,
+    value,
+    onChange = noop,
+    className,
+    placeholder
+}) {
     return (
         <TextAreaAutosize
-            className={ `textarea ${ className }` }
+            name={ name }
             value={ value }
             placeholder={ placeholder }
-            onChange={ ({ target: { value }}) => onChange(value) }
+            className={ `textarea ${ className }` }
+            onChange={ ({ target: { value }}) => onChange({ name, value }) }
         />
     );
 }

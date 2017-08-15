@@ -76,7 +76,7 @@ export default class ItemForm extends React.Component {
                         className='margin-top'
                         placeholder='Notes...'
                         value={ item.description }
-                        onChange={ value => this.handleChange('description', value) }
+                        onChange={ this.handleChange }
                     />
                     <Button
                         text='Save'
