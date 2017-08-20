@@ -2,6 +2,7 @@ const { resolve, join } = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
     template: join(__dirname, 'src/index.html'),
@@ -14,6 +15,11 @@ const extractSassPlugin = new ExtractTextPlugin({
     disable: process.env.NODE_ENV === 'development'
 });
 
+const copyPlugin =  new CopyWebpackPlugin([
+    { from: './assets/icons/icon.icns' },
+    { from: './assets/icons/icon.ico' }
+]);
+
 module.exports = {
     context: resolve(__dirname, 'src'),
     entry: resolve(__dirname, 'src/app.js'),
@@ -21,6 +27,11 @@ module.exports = {
     output: {
         filename: 'build.js',
         path: resolve(__dirname, 'build'),
+    },
+
+    node: {
+        __dirname: false,
+        __filename: false
     },
 
     devServer: {
@@ -47,7 +58,8 @@ module.exports = {
     },
     plugins: [
         htmlWebpackPlugin,
-        extractSassPlugin
+        extractSassPlugin,
+        copyPlugin
     ],
     devtool: 'source-map' // https://webpack.js.org/configuration/devtool
 };
