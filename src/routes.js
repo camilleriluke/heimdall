@@ -1,5 +1,5 @@
+// eslint-disable-next-line
 import React from 'react';
-import { createHashHistory } from 'history';
 import Unlock from './pages/Unlock';
 import Init from './pages/Init';
 import EntryPoint from './pages/EntryPoint';
@@ -22,6 +22,6 @@ const Routes = () => (
         <Route path="/init"><Init /></Route>
         <Route path="/"><EntryPoint /></Route>
     </div>
-)
+);
 
 export default Routes;
