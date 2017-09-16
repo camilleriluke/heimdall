@@ -4,6 +4,11 @@
         "casumo/configurations/es6-test",
         "casumo/configurations/es6-browser"
     ],
+    "rules": {
+        "react/jsx-uses-vars": 2,
+        "arrow-parens": "off",
+        "no-unused-expressions": "off"
+    },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true,
