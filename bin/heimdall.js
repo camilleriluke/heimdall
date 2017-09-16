@@ -13,8 +13,7 @@ const getFileContents = _.partial(utils.getFileContents, fs, path);
 const encryptFile = _.partial(utils.encryptFile, logger, crypto.encrypt, getFileContents);
 const decryptFile = _.partial(utils.decryptFile, logger, crypto.decrypt, getFileContents);
 
-yargs
-    .usage('$0 <cmd> [args]')
+yargs.usage('$0 <cmd> [args]')
     .command('* [file]', 'Open Heimdall', { file: { default: config.defaultStore }}, defaultCommand)
     .command('encrypt <file> <password>', 'Encrypts the content of a text file', {}, encryptCommand)
     .command('decrypt <file> <password>', 'Decrypts the content of an encrypted file', {}, decryptCommand)
@@ -22,7 +21,7 @@ yargs
     .argv;
 
 function defaultCommand (argv) {
-    const file = argv.file;
+    const { file } = argv;
 
     logger.debug('Running default command', { file });
 }
