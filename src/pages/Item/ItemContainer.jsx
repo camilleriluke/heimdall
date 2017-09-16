@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Redirect from '../../components/Redirect';
 import { updateItem, deleteItem, confirm } from '../../actions';
-import Item from './Item';
+import Item from './Item.jsx';
 
 function ItemContainer ({ item, onSubmit, deleteItem }) {
     if (item) {
@@ -33,7 +33,7 @@ function mapDispatchToProps (dispatch) {
 
             dispatch(confirm(text, postAction));
         }
-    }
+    };
 }
 
 const Connected = connect(

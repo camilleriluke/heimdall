@@ -5,7 +5,6 @@ import { createStore, push } from '../../actions';
 import PasswordInput from '../../components/PasswordInput';
 import CenteredPage from '../../components/CenteredPage';
 import Title from '../../components/Title';
-import FormDescription from '../../components/FormDescription';
 import FormError from '../../components/FormError';
 import Button from '../../components/Button';
 import './Init.scss';
@@ -41,7 +40,8 @@ class Init extends React.Component {
             <CenteredPage className='page-dark'>
                 <Title text='Setup Storage' />
                 <div className='init-description'>
-                    This will create an encrypted file called <pre>.heimdall.store</pre> in your home directory.
+                    This will create an encrypted file called
+                    <pre>.heimdall.store</pre> in your home directory.
                 </div>
                 <FormError
                     text={ this.state.errorMessage }
@@ -51,12 +51,16 @@ class Init extends React.Component {
                 <form onSubmit={ this.onSubmit }>
                     <PasswordInput
                         placeholder='Password'
-                        ref={ password => { this.password = password; } }
+                        ref={ password => {
+                            this.password = password;
+                        } }
                     />
                     <PasswordInput
                         className='margin-top'
                         placeholder='Confirm password...'
-                        ref={ confirmPassword => { this.confirmPassword = confirmPassword; } }
+                        ref={ confirmPassword => {
+                            this.confirmPassword = confirmPassword;
+                        } }
                     />
 
                     <Button text='Next' color='green' className='margin-top' />
@@ -71,7 +75,7 @@ function mapDispatchToProps (dispatch) {
     return {
         createStore: password => dispatch(createStore(password)),
         redirect: path => dispatch(push(path))
-    }
+    };
 }
 
 const Connected = connect(

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createItem } from '../../actions';
-import NewItem from './NewItem';
+import NewItem from './NewItem.jsx';
 
 function NewItemContainer ({ createItem }) {
     return (

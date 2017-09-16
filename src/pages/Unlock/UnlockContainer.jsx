@@ -3,7 +3,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux';
 import { unlockStore, push } from '../../actions';
 import { decryptStore } from '../../utils';
-import Unlock from './Unlock';
+import Unlock from './Unlock.jsx';
 import './Unlock.scss';
 
 class UnlockContainer extends React.Component {
@@ -27,7 +27,7 @@ class UnlockContainer extends React.Component {
             decryptStore({ file: this.props.storeFile, password: this.state.password })
                 .then(store => {
                     this.props.unlockStore(store.items, this.state.password);
-                    this.props.redirect('/items')
+                    this.props.redirect('/items');
                 })
                 .catch(e => {
                     console.error(e);

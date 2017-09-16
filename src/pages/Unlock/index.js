@@ -1,1 +1,1 @@
-export { default } from './UnlockContainer';
+export { default } from './UnlockContainer.jsx';

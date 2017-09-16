@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import Link from '../../components/Link';
 import LockButton from '../../components/LockButton';
 import Header from '../../components/Header';

@@ -1,1 +1,1 @@
-export { default } from './Init';
+export { default } from './Init.jsx';
