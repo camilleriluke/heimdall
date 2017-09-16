@@ -2,17 +2,12 @@ const fs = require('fs');
 const path = require('path');
 const _ = require('lodash');
 const Promise = require('bluebird');
-const utils = require('../lib/utils');
 const crypto = require('../lib/crypto');
-const logger = require('../lib/logger')({});
 const { version } = require('../package.json');
 const config = require('../default.config');
 const validUrl = require('valid-url');
 
 const ENCODING = 'utf8';
-const getFileContents = _.partial(utils.getFileContents, fs, path);
-const encryptFile = _.partial(utils.encryptFile, logger, crypto.encrypt, getFileContents);
-const decryptFile = _.partial(utils.decryptFile, logger, crypto.decrypt, getFileContents);
 
 const DEFAULT_STORE_OBJECT = {
     encryptor: 'Heimdall',
@@ -51,6 +46,7 @@ export function decryptStore ({ file = config.defaultStore, password }) {
         const storeObject = safeFromJSON(decryptedStore);
 
         if (_.isNull(storeObject)) {
+            // eslint-disable-next-line
             reject({
                 type: 'DECRYPT_WRONG_PASSWORD',
                 file,
@@ -60,6 +56,7 @@ export function decryptStore ({ file = config.defaultStore, password }) {
         }
 
         if (storeObject.encryptor !== DEFAULT_STORE_OBJECT.encryptor) {
+            // eslint-disable-next-line
             reject({
                 type: 'DECRYPT_WRONG_FILE_FORMAT',
                 file,
