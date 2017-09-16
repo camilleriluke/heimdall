@@ -1,8 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 const url = require('url');
+const isDev = process.env.NODE_ENV !== 'production';
 
-const WIDTH = 1280;
+const WIDTH = 1000;
 const HEIGHT = 800;
 const ENTRY_HTML = path.join(__dirname, '../build/index.html');
 
@@ -14,10 +15,16 @@ app.on('window-all-closed', onAllWindowsClosed);
 app.on('activate', onActivate);
 
 function createWindow () {
-    window = new BrowserWindow({ width: WIDTH, height: HEIGHT })
+    window = new BrowserWindow({
+        width: WIDTH,
+        height: HEIGHT,
+        webPreferences: {
+            webSecurity: false
+        }
+    })
     window.on('closed', onWindowClosed);
     loadHtml();
-    openDevTools();
+    // openDevToolsIfDevMode();
     registerLinkHandler();
 }
 
@@ -33,8 +40,10 @@ function onActivate () {
     }
 }
 
-function openDevTools () {
-    window.webContents.openDevTools();
+function openDevToolsIfDevMode () {
+    if (isDev) {
+        window.webContents.openDevTools();
+    }
 }
 
 function registerLinkHandler () {

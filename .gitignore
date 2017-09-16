@@ -3,6 +3,9 @@ node_modules
 
 # Build
 build
+dist
 
 # Logs
 npm-debug.log
+yarn-error.log
+*.log

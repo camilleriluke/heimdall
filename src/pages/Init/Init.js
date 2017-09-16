@@ -38,8 +38,11 @@ class Init extends React.Component {
 
     render () {
         return (
-            <CenteredPage>
+            <CenteredPage className='page-dark'>
                 <Title text='Setup Storage' />
+                <div className='init-description'>
+                    This will create an encrypted file called <pre>.heimdall.store</pre> in your home directory.
+                </div>
                 <FormError
                     text={ this.state.errorMessage }
                     className='margin-bottom'
