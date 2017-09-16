@@ -1,17 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from '../../actions';
-import _ from 'lodash';
 
-function Link ({ redirect, href, children, ...props }) {
-    return (
-        <div
-            { ...props }
-            onClick={ () => redirect(href) }
-        >
-            { children }
-        </div>
-    );
+class Redirect extends React.Component {
+    constructor (props) {
+        super(props);
+    }
+
+    componentDidMount () {
+        if (this.props.path) {
+            this.props.redirect(this.props.path);
+        }
+    }
+
+    render () {
+        return null;
+    }
 }
 
 function mapDispatchToProps (dispatch) {
@@ -23,6 +27,6 @@ function mapDispatchToProps (dispatch) {
 const Connected = connect(
     () => ({}),
     mapDispatchToProps
-)(Link);
+)(Redirect);
 
 export default Connected;

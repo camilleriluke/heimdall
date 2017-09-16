@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { lockStore } from '../../actions'
+import { lockStore } from '../../actions';
 import Icon from '../Icon';
 import './LockButton.scss';
 
@@ -23,7 +23,7 @@ function mapStateToProps () {
 function mapDispatchToProps (dispatch) {
     return {
         lock: () => dispatch(lockStore())
-    }
+    };
 }
 
 const Connected = connect(

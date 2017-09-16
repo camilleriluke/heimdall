@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { goBack } from '../../actions';
-import _ from 'lodash';
 
 function GoBack ({ goBack, children, ...props }) {
     return (
@@ -16,7 +15,7 @@ function GoBack ({ goBack, children, ...props }) {
 
 function mapDispatchToProps (dispatch) {
     return {
-        goBack: path => dispatch(goBack())
+        goBack: () => dispatch(goBack())
     };
 }
 

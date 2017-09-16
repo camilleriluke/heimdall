@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import './LinkInput.scss';
 
 const DEFAULT_PLACEHOLDER = 'Link';
@@ -31,7 +30,7 @@ export default class LinkInput extends React.Component {
             <div className={ `input-container ${ className }` }>
                 <input
                     name={ name }
-                    className={ `input link-input` }
+                    className={ 'input link-input' }
                     placeholder={ placeholder || DEFAULT_PLACEHOLDER }
                     onChange={ this.onChange }
                     value={ value }

@@ -1,1 +1,1 @@
-export { default } from './CenteredPage';
+export { default } from './CenteredPage.jsx';

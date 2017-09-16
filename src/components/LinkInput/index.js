@@ -1,1 +1,1 @@
-export { default } from './LinkInput';
+export { default } from './LinkInput.jsx';

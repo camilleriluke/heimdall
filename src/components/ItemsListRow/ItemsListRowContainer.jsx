@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { setActiveItem, push } from '../../actions';
-import CopyToClipboard from '../CopyToClipboard';
-import ItemsListRow from './ItemsListRow';
+import ItemsListRow from './ItemsListRow.jsx';
 
 const COPIED_MESSAGE_TIMEOUT = 2000;
 

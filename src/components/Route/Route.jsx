@@ -13,7 +13,7 @@ function Route ({ path = '', activeRoute, children }) {
 function mapStateToProps (state) {
     return {
         activeRoute: _.get(state, 'router.activeRoute', '/')
-    }
+    };
 }
 
 const Connected = connect(

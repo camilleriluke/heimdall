@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { updateStoreFile, useDefaultStoreFile } from '../../actions';
-import StoreFileSelector from './StoreFileSelector';
+import StoreFileSelector from './StoreFileSelector.jsx';
 import './StoreFileSelector.scss';
 
 export function StoreFileSelectorContainer ({ storeFile, className, updateStoreFile, useDefaultStoreFile }) {

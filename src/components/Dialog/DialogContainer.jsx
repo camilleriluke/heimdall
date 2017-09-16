@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { dialogClose } from '../../actions';
-import Dialog from './Dialog';
+import Dialog from './Dialog.jsx';
 
 export function DialogContainer ({ dialogs, onClose }) {
     return (

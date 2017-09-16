@@ -24,7 +24,7 @@ export default function Button ({
 
 function getIcon (icon) {
     if (icon) {
-        return <Icon icon={ icon } className='padding-right' />
+        return <Icon icon={ icon } className='padding-right' />;
     }
 
     return null;

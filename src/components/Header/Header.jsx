@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GoBack from '../GoBack';
 import Icon from '../Icon';
-import Help from '../Help'
+import Help from '../Help';
 import { dialog } from '../../actions';
 import './Header.scss';
 
-export function Header ({ title='Heimdall', displayBackButton, openHelp, children }) {
+export function Header ({ title = 'Heimdall', displayBackButton, openHelp, children }) {
     return (
         <div className='header'>
             <InfoButton isVisible={ !displayBackButton } openHelp={ openHelp } />

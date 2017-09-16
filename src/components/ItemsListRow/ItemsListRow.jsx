@@ -15,7 +15,7 @@ export default function ItemsListRow ({ onClick, onCopy, item, displayCopyText, 
     );
 }
 
-function getItemName (name, keyword='') {
+function getItemName (name, keyword = '') {
     if (!keyword) {
         return <div className='item-list-row-name'>{ name }</div>;
     }
@@ -33,14 +33,14 @@ function getItemName (name, keyword='') {
                 <span className='highlighted'>{ name.substr(from, to) }</span>
                 { name.substr(from + part.length) }
             </div>
-        )
+        );
     } else {
         return (
             <div className='item-list-row-name'>
                 <span className='highlighted'>{ name.substr(from, to) }</span>
                 { name.substr(to) }
             </div>
-        )
+        );
     }
 }
 

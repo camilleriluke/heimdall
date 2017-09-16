@@ -14,7 +14,7 @@ export default class Dialog extends React.Component {
     }
 
     onClose () {
-        this.setState({ animationClass: 'dialog-animation-close' })
+        this.setState({ animationClass: 'dialog-animation-close' });
 
         setTimeout(
             () => {

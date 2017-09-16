@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import PasswordInput from '../PasswordInput';
 import TextInput from '../TextInput';
 import LinkInput from '../LinkInput';

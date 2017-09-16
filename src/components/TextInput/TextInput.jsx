@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import './TextInput.scss';
 
 export default class TextInput extends React.Component {
@@ -17,9 +16,8 @@ export default class TextInput extends React.Component {
     }
 
     onChange (event) {
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
+        const { target } = event;
+        const { value, name } = target;
 
         this.setState({ value });
 
@@ -31,7 +29,9 @@ export default class TextInput extends React.Component {
     render () {
         return (
             <input
-                ref={ input => { this.input = input; } }
+                ref={ input => {
+                    this.input = input;
+                } }
                 name={ this.props.name || '' }
                 className={ `input ${ this.props.className }` }
                 placeholder={ this.props.placeholder }

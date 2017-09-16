@@ -23,7 +23,7 @@ function CheckAuth ({ isAuthenticated, children }) {
 function mapStateToProps (state) {
     return {
         isAuthenticated: !_.get(state, 'status.locked', false)
-    }
+    };
 }
 
 const Connected = connect(
@@ -31,7 +31,3 @@ const Connected = connect(
 )(ProtectedRoute);
 
 export default Connected;
-
-function matchRoute (activeRoute, route) {
-    return activeRoute === route;
-}

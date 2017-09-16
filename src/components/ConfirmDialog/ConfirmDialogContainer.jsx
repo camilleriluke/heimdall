@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { connect } from 'react-redux';
 import { dialogOk, dialogCancel } from '../../actions';
-import ConfirmDialog from './ConfirmDialog';
+import ConfirmDialog from './ConfirmDialog.jsx';
 
 export function ConfirmDialogContainer ({ dialogs, onCancel, onConfirm }) {
     return (

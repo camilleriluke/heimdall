@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { search, clearSearch } from '../../actions';
-import Search from './Search';
+import Search from './Search.jsx';
 
 export function SearchContainer ({ className, search, clearSearch }) {
     return (

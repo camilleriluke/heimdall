@@ -69,13 +69,16 @@ export default class PasswordInput extends React.Component {
             canCopy = false
         } = this.props;
         const isGenerateVisible = canGenerate && _.isEmpty(value);
+        const extraClassName = getClassName(className, isGenerateVisible, canCopy);
 
         return (
-            <div className={ `password-input-container ${ getClassName(className, isGenerateVisible, canCopy) }` }>
+            <div className={ `password-input-container ${ extraClassName }` }>
                 <input
-                    ref={ input => { this.input = input; } }
+                    ref={ input => {
+                        this.input = input;
+                    } }
                     name={ name || '' }
-                    className={ `input password-input` }
+                    className={ 'input password-input' }
                     placeholder={ placeholder || DEFAULT_PLACEHOLDER }
                     value={ value }
                     type={ type }
@@ -134,7 +137,7 @@ function PasswordToggleButton ({ inputType, onClick }) {
             className={ `input-icon password-input-toggle ${ className }` }
             onClick={ onClick }
         />
-    )
+    );
 }
 
 function PasswordGenerateButton ({ isVisible, onClick }) {
@@ -144,7 +147,7 @@ function PasswordGenerateButton ({ isVisible, onClick }) {
         <span className={ `password-generate ${ className }` } onClick={ onClick }>
             <i className='ion-wand'></i> Generate Password
         </span>
-    )
+    );
 }
 
 function getClassName (className, isGenerateVisble, canCopy) {
@@ -165,6 +168,7 @@ function getRandomPassword (length = 15) {
 
     for (let x = 0; x < length; x++) {
         const i = Math.floor(Math.random() * chars.length);
+
         pass += chars.charAt(i);
     }
 

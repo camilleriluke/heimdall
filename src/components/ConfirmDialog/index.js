@@ -1,1 +1,1 @@
-export { default } from './ConfirmDialogContainer';
+export { default } from './ConfirmDialogContainer.jsx';

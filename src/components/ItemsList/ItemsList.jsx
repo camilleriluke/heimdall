@@ -1,6 +1,8 @@
 import React from 'react';
 import ItemsListRow from '../ItemsListRow';
-import styles from './ItemsList.scss';
+import map from 'lodash/map';
+import isEmpty from 'lodash/isEmpty';
+import './ItemsList.scss';
 
 export default function ItemsList ({ items }) {
     return (
@@ -11,9 +13,9 @@ export default function ItemsList ({ items }) {
 }
 
 function loopItems (items) {
-    if (_.isEmpty(items)) {
+    if (isEmpty(items)) {
         return <span className='items-empty-message'>No items found.</span>;
     }
 
-    return _.map(items, (item, index) => (<ItemsListRow item={ item } key={ index } />));
+    return map(items, (item, index) => (<ItemsListRow item={ item } key={ index } />));
 }
