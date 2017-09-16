@@ -46,16 +46,42 @@
     "yargs": "^8.0.1"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^4.0.1",
     "electron": "^1.6.7",
-    "electron-builder": "^19.11.1",
-    "electron-packager": "^8.7.1"
+    "electron-builder": "^19.22.1",
+    "electron-packager": "^8.7.1",
+    "locate-path": "^2.0.0",
+    "webpack-target-electron-renderer": "^0.4.0"
   },
   "scripts": {
     "electron": "./node_modules/.bin/electron .",
-    "build": "electron-packager ./ Heimdall --platform=darwin --electron-version=1.6.11 --ignore=node_modules --out=/Users/leventebalogh --overwrite",
     "dev": "webpack --config ./webpack.config.js -w",
+    "build": "webpack --config ./webpack.config.js",
     "test": "jest",
-    "tdd": "jest --watchAll"
+    "tdd": "jest --watchAll",
+    "dist-mac": "yarn build && electron-builder -m"
+  },
+  "build": {
+    "productName": "Heimdall",
+    "appId": "com.electron.heimdall",
+    "mac": {
+      "category": "public.app-category.developer-tools"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ]
+    },
+    "files": [
+      "build/",
+      "src/main.js"
+    ]
   },
   "keywords": [],
   "license": "ISC"
