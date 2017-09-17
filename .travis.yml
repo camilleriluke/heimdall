@@ -1,11 +1,10 @@
-version: 0.1.{build}
-
 os:
   - osx
 
 language: node_js
+
 node_js:
-  - "8"
+  - '8'
 
 cache: yarn
 
@@ -16,3 +15,11 @@ script:
   - node --version
   - npm --version
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then yarn dist-mac ; fi
+
+deploy:
+  provider: releases
+  api_key:
+    secure: fx9fZzDLwkLtkNO0h1yejWRfgav+a5cNRdCElSG7yfCG1BOTBo/pS/D9MptpzhGd/xIx3kkbFizmH+rEim8j5DcSZjnqCfHtOLko+HKQC33QpU+6sgD+DVE8DtFq1snjAiX56Nu9k5lUzdE9FrxJuFGCrEflyxtHgMuEihBgalzNA2T/AEAy1PJxC3fXhgYP/0ihU3y3QGzJvxN0HxXQD0sgqxUyVpwRMCGd9z1zWiu4ezPpRJM3Cige6pYQLK0Tyg6xhG4mGp2iYciYLqGUB8pP0jD8bhLKiLY2ry68mgdJDJj76Y6xjFM9kiz9txvb+3nnrX5yJTPu1tqv+l7pLnEcbX4hpXjGb6GvBgHu2y2YJ62aFQO1phONzvn/N5G5unJMwillvpnMhXMlKrIYuo8QHJgc7wDZJRm6R50lF9SMSgPhBp8aD0q0EK3YE0ybQZWGWE1EzPoj3S4ZXvOlWWeShOdKfvWh0O3X9Yvis5ISPLqrckGYgzVoqh28cvUTXjfGaR33m1mjqVnLH2WcEJ3yBWU3CxVI1nUbTaI1KD5LT2EVoX5MM6rnyki8XE/j3MbUUKq9jMOPDgpHI0NlbdKlKANt9wCami1xTdfqDiEDTFe+abK83jTJT3Ava0ksadvLntwKtp6iKOvB+I1l/PkdsRQPykaUeQ/PaFmipK4=
+  file: dist/mac/Heimdall.app
+  on:
+    repo: leventebalogh/heimdall
