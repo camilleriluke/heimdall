@@ -63,7 +63,7 @@
     "test": "jest",
     "tdd": "jest --watchAll",
     "lint": "eslint ./src ./lib ./bin",
-    "dist-mac": "yarn build && electron-builder -m && zip ./dist/osx.zip ./dist/mac"
+    "dist-mac": "yarn build && electron-builder -m --publish \"never\" && zip ./dist/osx.zip ./dist/mac"
   },
   "build": {
     "productName": "Heimdall",
