@@ -1,9 +1,11 @@
+[![Build Status](https://travis-ci.org/leventebalogh/heimdall.svg?branch=master)](https://travis-ci.org/leventebalogh/heimdall)
+
 # Heimdall
 
 A very lightweight, offline password manager.
 
 ## Description
-Heimdall gives you a command-line tool as well as an easy-to-use GUI to manage your passwords offline and securely. 
+Heimdall gives you a command-line tool as well as an easy-to-use GUI to manage your passwords offline and securely.
 
 ## Install
 `$ npm i -g heimdall`
