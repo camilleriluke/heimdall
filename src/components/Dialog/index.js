@@ -1,1 +1,1 @@
-export { default } from './DialogContainer';
+export { default } from './DialogContainer.jsx';

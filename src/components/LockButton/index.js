@@ -1,1 +1,1 @@
-export { default } from './LockButton';
+export { default } from './LockButton.jsx';

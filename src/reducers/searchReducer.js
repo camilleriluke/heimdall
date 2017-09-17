@@ -14,5 +14,5 @@ export default function searchReducer (state = defaultState, action) {
 
         default:
             return state;
-    };
+    }
 }

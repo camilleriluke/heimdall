@@ -1,4 +1,4 @@
-import fs from 'fs';
+// eslint-disable-next-line
 import React from 'react';
 import _ from 'lodash';
 import { Provider } from 'react-redux';
@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom';
 import reducers from './reducers';
 import { get as getFromPersistedStore } from '../lib/store';
 import config from '../default.config';
-import { doesStoreExist, readRawStore, encryptStore } from './utils';
+import { doesStoreExist, encryptStore } from './utils';
 import Routes from './routes';
 import { registerHotkeys } from './hotkeys';
 import './styles/main.scss';
@@ -33,8 +33,7 @@ function saveAndEncryptOnStoreChange (store) {
     store.subscribe(() => {
         const state = store.getState();
         const items = state.items.raw;
-        const locked = state.status.locked;
-        const password = state.status.password;
+        const { status: { locked, password }} = state;
 
         if (!locked && password) {
             encryptStore({ items, password });
@@ -63,7 +62,7 @@ function getInitialState () {
     return {
         items: {
             raw: persistedItems || [],
-            filtered: persistedItems || [],
+            filtered: persistedItems || []
         },
         status: {
             locked: _.get(persistedStatus, 'locked', true),

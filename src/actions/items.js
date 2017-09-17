@@ -1,15 +1,6 @@
-import _ from 'lodash';
 import { push } from './router';
-import { persistState, clearPersistedState } from './persist';
+import { persistState } from './persist';
 import types from './actionTypes';
-
-const DEFAULT_ITEM = {
-    name: 'FooBar',
-    password: 'FooBarPassword',
-    url: '',
-    username: '',
-    description: 'some small description'
-};
 
 export function createItem (item) {
     return dispatch => {

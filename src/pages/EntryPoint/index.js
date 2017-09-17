@@ -1,1 +1,1 @@
-export { default } from './EntryPoint';
+export { default } from './EntryPoint.jsx';

@@ -1,5 +1,5 @@
+// eslint-disable-next-line
 import React from 'react';
-import _ from 'lodash';
 import Mousetrap from 'mousetrap';
 import Help from './components/Help';
 import {
@@ -46,7 +46,7 @@ function esc (store) {
 
     if (dialogs.length) {
         store.dispatch(dialogClose());
-    } else if(item) {
+    } else if (item) {
         store.dispatch(goBack());
         store.dispatch(unsetActiveItem());
     } else if (router.activeRoute === '/create-item') {
@@ -63,5 +63,5 @@ function dispatch (store, action) {
         store.dispatch(action);
 
         return false;
-    }
+    };
 }

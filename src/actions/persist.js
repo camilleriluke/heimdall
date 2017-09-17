@@ -7,7 +7,7 @@ export function persistState () {
         const password = _.get(state, 'status.password', null);
         const storeFile = _.get(state, 'status.storeFile');
         const locked = _.get(state, 'status.locked');
-        const items = _.get(state, 'items.raw', );
+        const items = _.get(state, 'items.raw');
 
         persistedStore.set('status', { locked, password, storeFile });
         persistedStore.set('items', items);

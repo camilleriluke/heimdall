@@ -1,1 +1,1 @@
-export { default } from './FormDescription';
+export { default } from './FormDescription.jsx';

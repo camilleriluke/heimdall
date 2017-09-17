@@ -1,10 +1,9 @@
-import _ from 'lodash';
 import types from './actionTypes';
 
 export function dialog (content) {
     const dialog = {
         type: 'normal',
-        content,
+        content
     };
 
     return { type: types.DIALOG_OPEN, dialog };
@@ -14,7 +13,7 @@ export function confirm (text, postAction) {
     const dialog = {
         type: 'confirm',
         text,
-        postAction,
+        postAction
     };
 
     return { type: types.DIALOG_OPEN, dialog };

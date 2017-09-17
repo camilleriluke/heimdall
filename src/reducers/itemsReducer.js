@@ -13,7 +13,7 @@ export default function statusReducer (state = defaultState, action) {
     switch (action.type) {
         case types.CREATE_ITEM:
             action.item.id = uuid();
-            items = [ ...state.raw, action.item ];
+            items = [...state.raw, action.item];
 
             return {
                 raw: items,
@@ -71,5 +71,5 @@ export default function statusReducer (state = defaultState, action) {
 
         default:
             return state;
-    };
+    }
 }

@@ -1,1 +1,1 @@
-export { default } from './StoreFileSelectorContainer';
+export { default } from './StoreFileSelectorContainer.jsx';
