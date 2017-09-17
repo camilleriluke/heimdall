@@ -17,7 +17,7 @@ script:
   - yarn --version
   - yarn lint
   - yarn build
-  - if [[ -n "$TRAVIS_TAG" && "$TRAVIS_OS_NAME" == "osx" ]]; then yarn dist-mac ; fi
+  - if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_OS_NAME" == "osx" ]]; then yarn dist-mac ; fi
 
 deploy:
   provider: releases
