@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.0.1",
-    "electron": "^1.6.7",
+    "electron": "1.7.6",
     "electron-builder": "^19.22.1",
     "electron-packager": "^8.7.1",
     "locate-path": "^2.0.0",
