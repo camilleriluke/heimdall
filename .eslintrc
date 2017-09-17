@@ -1,0 +1,19 @@
+{
+    "extends": [
+        "casumo/configurations/es6-node",
+        "casumo/configurations/es6-test",
+        "casumo/configurations/es6-browser"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "experimentalObjectRestSpread": true
+        }
+    },
+    "plugins": [
+        "react"
+    ],
+    "globals": {
+        "expect": true
+    }
+}

@@ -50,6 +50,9 @@
     "electron": "1.7.6",
     "electron-builder": "^19.22.1",
     "electron-packager": "^8.7.1",
+    "eslint": "^4.7.0",
+    "eslint-config-casumo": "^1.3.0",
+    "eslint-plugin-react": "^7.3.0",
     "locate-path": "^2.0.0",
     "webpack-target-electron-renderer": "^0.4.0"
   },
@@ -59,6 +62,7 @@
     "build": "webpack --config ./webpack.config.js",
     "test": "jest",
     "tdd": "jest --watchAll",
+    "lint": "eslint ./src ./lib ./bin",
     "dist-mac": "yarn build && electron-builder -m && zip ./dist/osx.zip ./dist/mac"
   },
   "build": {
