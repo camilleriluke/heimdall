@@ -1,7 +1,7 @@
 {
   "name": "heimdall",
-  "version": "1.0.0",
-  "description": "Foo bar huhuhu",
+  "version": "0.9.0",
+  "description": "An open-source password manager app.",
   "author": {
     "name": "Levente Balogh",
     "email": "balogh.levente.hu@gmail.com",
@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "copy-webpack-plugin": "^4.0.1",
-    "electron": "^1.6.7",
+    "electron": "1.7.6",
     "electron-builder": "^19.22.1",
     "electron-packager": "^8.7.1",
     "locate-path": "^2.0.0",
@@ -59,7 +59,7 @@
     "build": "webpack --config ./webpack.config.js",
     "test": "jest",
     "tdd": "jest --watchAll",
-    "dist-mac": "yarn build && electron-builder -m"
+    "dist-mac": "yarn build && electron-builder -m && zip ./dist/osx.zip ./dist/mac"
   },
   "build": {
     "productName": "Heimdall",
