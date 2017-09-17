@@ -59,7 +59,7 @@
     "build": "webpack --config ./webpack.config.js",
     "test": "jest",
     "tdd": "jest --watchAll",
-    "dist-mac": "yarn build && electron-builder -m"
+    "dist-mac": "yarn build && electron-builder -m && zip ./dist/osx.zip ./dist/mac"
   },
   "build": {
     "productName": "Heimdall",
