@@ -1,7 +1,7 @@
 {
   "name": "heimdall",
-  "version": "1.0.0",
-  "description": "Foo bar huhuhu",
+  "version": "0.9.0",
+  "description": "An open-source password manager app.",
   "author": {
     "name": "Levente Balogh",
     "email": "balogh.levente.hu@gmail.com",
